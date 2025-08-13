@@ -1,0 +1,31 @@
+{% extends "blog/layout.html" %}
+
+{% block title %}
+    Search Results
+{% endblock %}
+
+{% block body %}
+    <h2 style="text-align:center;">Search Results for "{{ query }}"</h2>
+
+    {% if matches %}
+        <div class="card-container">
+            {% for post in matches %}
+            <a class="card" href="{% url 'post' slug=post.slug %}">
+                <img src="{{ post.thumbnail }}" alt="{{ post.title }}">
+                <div>
+                    <div class="card-title">{{ post.title }}</div>
+                    <div class="card-date">{{ post.date }}</div>
+                </div>
+            </a>
+            {% endfor %}
+            <div>
+                <a href="{% url 'index' %}">Home</a>
+            </div>
+        </div>
+    {% else %}
+        <p style="text-align:center;">No matching posts found.</p>
+        <div style="text-align:center;">
+            <a href="{% url 'index' %}">Home</a>
+        </div>
+    {% endif %}
+{% endblock %}

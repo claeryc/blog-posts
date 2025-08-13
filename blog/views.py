@@ -1,5 +1,5 @@
 import os
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.conf import settings
 from django.http import Http404
 import markdown
@@ -61,3 +61,32 @@ def post(request, slug):
             content = content.split('---', 2)[-1]  # remove front matter
     html = markdown.markdown(content)
     return render(request, 'blog/post.html', {'content': html})
+
+def search(request):
+    query = request.GET.get("q")
+    posts_dir = os.path.join(settings.BASE_DIR, 'blog', 'posts')
+
+    if query:
+        files = [f for f in os.listdir(posts_dir) if f.endswith('.md')]
+        matches = []
+
+        for filename in files:
+            filepath = os.path.join(posts_dir, filename)
+            meta = parse_front_matter(filepath)
+            title = meta.get('title', filename[:-3])
+
+            # Match in title (case-insensitive)
+            if query.lower() in title.lower():
+                matches.append({
+                    'slug': filename[:-3],
+                    'title': title,
+                    'thumbnail': meta.get('thumbnail', '/static/images/default.jpg'),
+                    'date': meta.get('date', 'Unknown Date')
+                })
+
+        return render(request, 'blog/search.html', {
+            'query': query,
+            'matches': matches
+        })
+    else:
+        return redirect("index")
