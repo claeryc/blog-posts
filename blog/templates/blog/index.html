@@ -1,23 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Blog Index</title>
-</head>
-<body>
+{% extends "blog/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
     <h1>Blog Posts</h1>
-    <ul>
+
+    <div class="card-container">
         {% for post in posts %}
-            <li><a href="{% url 'post' slug=post %}">{{ post }}</a></li>
+        <a class="card" href="{% url 'post' slug=post.slug %}">
+            <img src="{{ post.thumbnail }}" alt="{{ post.title }}">
+            <div>
+                <div class="card-title">{{ post.title }}</div>
+            </div>
+        </a>
         {% endfor %}
-        </ul>
-        
-        <div class="pagination">
-            {% if prev_page %}
-                <a href="?page={{ prev_page }}">Previous</a>
-            {% endif %}
-            {% if next_page %}
-                <a href="?page={{ next_page }}">Next</a>
-            {% endif %}
-        </div>
-</body>
-</html>
+    </div>
+    
+    <div style="text-align:center; margin-top: 20px;">
+        {% if prev_page %}
+            <a href="?page={{ prev_page }}">Previous</a>
+        {% endif %}
+        {% if next_page %}
+            <a href="?page={{ next_page }}">Next</a>
+        {% endif %}
+    </div>
+
+{% endblock %}
