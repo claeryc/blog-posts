@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Index</title>
+</head>
+<body>
+    <h1>Blog Posts</h1>
+    <ul>
+        {% for post in posts %}
+            <li><a href="{% url 'post' slug=post %}">{{ post }}</a></li>
+        {% endfor %}
+        </ul>
+        
+        <div class="pagination">
+            {% if prev_page %}
+                <a href="?page={{ prev_page }}">Previous</a>
+            {% endif %}
+            {% if next_page %}
+                <a href="?page={{ next_page }}">Next</a>
+            {% endif %}
+        </div>
+</body>
+</html>
