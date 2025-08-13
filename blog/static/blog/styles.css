@@ -1,11 +1,17 @@
 h1 {
-    color: green;
+    color: red;
     text-align: center;
+    margin-bottom: 2em;
 }
 
 a {
     text-decoration: none;
     color: black;
+}
+
+.content-block {
+    width: 60%;
+    margin: 0 auto;
 }
 
 .card-container {
@@ -24,6 +30,7 @@ a {
     box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
     text-decoration: none;
     color: inherit;
+    border: 1px solid orange;
 }
 .card img {
     width: 120px;
@@ -37,3 +44,8 @@ a {
     font-weight: bold;
 }
 
+.card-date {
+    font-size: 0.9em;
+    color: gray;
+    margin-top: 4px;
+}

@@ -25,7 +25,8 @@ def index(request):
         posts.append({
             'slug': slug,
             'title': meta.get('title', slug),
-            'thumbnail': meta.get('thumbnail', '/static/images/default.jpg')
+            'thumbnail': meta.get('thumbnail', '/static/images/default.jpg'),
+            'date': meta.get('date', 'Unknown Date')
         })
 
     per_page = 2

@@ -1,7 +1,7 @@
 {% extends "blog/layout.html" %}
 
 {% block title %}
-    {{ title }}
+    Blog Posts
 {% endblock %}
 
 {% block body %}
@@ -13,6 +13,7 @@
             <img src="{{ post.thumbnail }}" alt="{{ post.title }}">
             <div>
                 <div class="card-title">{{ post.title }}</div>
+                <div class="card-date">{{ post.date }}</div>
             </div>
         </a>
         {% endfor %}
