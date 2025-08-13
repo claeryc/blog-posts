@@ -4,10 +4,6 @@ from django.conf import settings
 from django.http import Http404
 import markdown
 
-import os
-from django.shortcuts import render
-from django.conf import settings
-
 def index(request):
     posts_dir = os.path.join(settings.BASE_DIR, 'blog', 'posts')
     posts = sorted([f[:-3] for f in os.listdir(posts_dir) if f.endswith('.md')], reverse=True)
