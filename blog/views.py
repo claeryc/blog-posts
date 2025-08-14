@@ -1,5 +1,10 @@
 import os
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import EmailVerification
+from .forms import EmailForm, CodeForm
+import uuid
+from django.core.mail import send_mail
+
 from django.conf import settings
 from django.http import Http404
 import markdown
@@ -51,16 +56,16 @@ def index(request):
         'next_page': next_page
     })
 
-def post(request, slug):
-    filepath = os.path.join(settings.BASE_DIR, 'blog', 'posts', f"{slug}.md")
-    if not os.path.exists(filepath):
-        raise Http404("Post not found")
-    with open(filepath, 'r', encoding='utf-8') as f:
-        content = f.read()
-        if content.startswith('---'):
-            content = content.split('---', 2)[-1]  # remove front matter
-    html = markdown.markdown(content)
-    return render(request, 'blog/post.html', {'content': html})
+# def post(request, slug):
+#     filepath = os.path.join(settings.BASE_DIR, 'blog', 'posts', f"{slug}.md")
+#     if not os.path.exists(filepath):
+#         raise Http404("Post not found")
+#     with open(filepath, 'r', encoding='utf-8') as f:
+#         content = f.read()
+#         if content.startswith('---'):
+#             content = content.split('---', 2)[-1]  # remove front matter
+#     html = markdown.markdown(content)
+#     return render(request, 'blog/post.html', {'content': html})
 
 def search(request):
     query = request.GET.get("q")
@@ -90,3 +95,98 @@ def search(request):
         })
     else:
         return redirect("index")
+    
+def post(request, slug):
+    # Load Markdown content as usual
+    filepath = os.path.join(settings.BASE_DIR, 'blog', 'posts', f"{slug}.md")
+    if not os.path.exists(filepath):
+        raise Http404("Post not found")
+
+    # Check if post is restricted (using front matter)
+    with open(filepath, 'r', encoding='utf-8') as f:
+        lines = f.read().split('---')
+        meta = {}
+        if len(lines) >= 3:
+            meta = yaml.safe_load(lines[1])
+        restricted = meta.get('restricted', False)
+
+    # If restricted, check session for verified email
+    if restricted and not request.session.get(f'verified_{slug}', False):
+
+        if request.method == "POST":
+            # Handle email submission
+            if "email_submit" in request.POST:
+                form = EmailForm(request.POST)
+                if form.is_valid():
+                    email = form.cleaned_data['email']
+                    code = str(uuid.uuid4()).replace("-", "")[:6]  # 6-char code
+                    EmailVerification.objects.create(email=email, code=code)
+
+                    # Send code by email
+                    send_mail(
+                        "Your verification code",
+                        f"Use this code to access the post: {code}",
+                        settings.DEFAULT_FROM_EMAIL,
+                        [email],
+                        fail_silently=False,
+                    )
+                    request.session['email_for_code'] = email
+                    form = CodeForm()
+                    return render(request, 'blog/verify.html', {
+                        'form': form,
+                        'form_type': 'code'
+                    })
+
+                # Render form with errors
+                return render(request, 'blog/verify.html', {
+                    'form': form,
+                    'form_type': 'email'
+                })
+
+            # Handle code submission
+            elif "code_submit" in request.POST:
+                form = CodeForm(request.POST)
+                if form.is_valid():
+                    code_input = form.cleaned_data['code']
+                    email = request.session.get('email_for_code')
+                    try:
+                        verification = EmailVerification.objects.get(email=email, code=code_input, used=False)
+                        if verification.is_expired():
+                            verification.used = True
+                            verification.save()
+                            return render(request, 'blog/verify.html', {
+                                'form': CodeForm(),
+                                'form_type': 'code',
+                                'error': 'Code expired'
+                            })
+                        verification.used = True
+                        verification.save()
+                        request.session[f'verified_{slug}'] = True
+                        return redirect(request.path)
+                    except EmailVerification.DoesNotExist:
+                        return render(request, 'blog/verify.html', {
+                            'form': CodeForm(),
+                            'form_type': 'code',
+                            'error': 'Invalid code'
+                        })
+
+                # Render form with errors
+                return render(request, 'blog/verify.html', {
+                    'form': form,
+                    'form_type': 'code'
+                })
+
+        # GET request — show email form
+        form = EmailForm()
+        return render(request, 'blog/verify.html', {
+            'form': form,
+            'form_type': 'email'
+        })
+
+    # If not restricted or already verified, show post
+    with open(filepath, 'r', encoding='utf-8') as f:
+        content = f.read()
+        if content.startswith('---'):
+            content = content.split('---', 2)[-1]  # remove front matter
+    html = markdown.markdown(content)
+    return render(request, 'blog/post.html', {'content': html})

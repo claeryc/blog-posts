@@ -2,6 +2,7 @@
 title: My Life in China
 thumbnail: /static/images/ghostp.jpg
 date: 2025-08-13
+restricted: true
 ---
 # My Third Blog Post
 Welcome to my blog! This is **Markdown**.

@@ -1,0 +1,19 @@
+{% extends "blog/layout.html" %}
+
+{% block title %}Verify Email{% endblock %}
+
+{% block body %}
+<h2>Restricted Post</h2>
+
+{% if error %}
+<p style="color:red;">{{ error }}</p>
+{% endif %}
+
+{% if form %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" name="{% if form_type == 'email' %}email_submit{% else %}code_submit{% endif %}">Submit</button>
+</form>
+{% endif %}
+{% endblock %}
