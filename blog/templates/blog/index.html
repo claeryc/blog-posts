@@ -1,38 +1,26 @@
 {% extends "blog/layout.html" %}
 
 {% block title %}
-    Blog Posts
+    Home
 {% endblock %}
 
-{% block body %}
-    <h1>Blog Posts</h1>
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Welcome to My Blog</h1>
+            <p>Insights, stories, and ideas.</p>
+        </div>
+    </section>
 
+    <!-- Search -->
     <div style="display: flex; justify-content: center; margin-bottom: 2em;">
-    <form action="{% url 'search' %}" method="get">
-        <label for="search">Search: </label>
-        <input id="search" class="search" type="text" name="q" placeholder="Enter title name">
-    </form>
+        <form action="{% url 'search' %}" method="get">
+            <label for="search">Search: </label>
+            <input id="search" class="search" type="text" name="q" placeholder="Enter title name">
+        </form>
     </div>
 
-    <div class="card-container">
-        {% for post in posts %}
-        <a class="card" href="{% url 'post' slug=post.slug %}">
-            <img src="{{ post.thumbnail }}" alt="{{ post.title }}">
-            <div>
-                <div class="card-title">{{ post.title }}</div>
-                <div class="card-date">{{ post.date }}</div>
-            </div>
-        </a>
-        {% endfor %}
-    </div>
-    
-    <div style="text-align:center; margin-top: 20px;">
-        {% if prev_page %}
-            <a href="?page={{ prev_page }}">Previous</a>
-        {% endif %}
-        {% if next_page %}
-            <a href="?page={{ next_page }}">Next</a>
-        {% endif %}
-    </div>
-
+    <!-- Blog Listing -->
+    {% include "blog/blog_list.html" %}
 {% endblock %}

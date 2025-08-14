@@ -1,12 +1,18 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Blog Post</title>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Blog{% endblock %}</title>
     <link href="{% static 'blog/styles.css' %}" rel="stylesheet">
 </head>
 <body>
-    {% block body %}
-    {% endblock %}
+    {% include "blog/navbar.html" %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% include "blog/footer.html" %}
 </body>
 </html>

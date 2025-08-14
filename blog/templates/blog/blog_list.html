@@ -1,0 +1,20 @@
+<div class="card-container">
+    {% for post in posts %}
+    <a class="card" href="{% url 'post' slug=post.slug %}">
+        <img src="{{ post.thumbnail }}" alt="{{ post.title }}">
+        <div>
+            <div class="card-title">{{ post.title }}</div>
+            <div class="card-date">{{ post.date }}</div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+<div style="text-align:center; margin-top: 20px;">
+    {% if prev_page %}
+        <a href="?page={{ prev_page }}">Previous</a>
+    {% endif %}
+    {% if next_page %}
+        <a href="?page={{ next_page }}">Next</a>
+    {% endif %}
+</div>

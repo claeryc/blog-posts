@@ -56,17 +56,6 @@ def index(request):
         'next_page': next_page
     })
 
-# def post(request, slug):
-#     filepath = os.path.join(settings.BASE_DIR, 'blog', 'posts', f"{slug}.md")
-#     if not os.path.exists(filepath):
-#         raise Http404("Post not found")
-#     with open(filepath, 'r', encoding='utf-8') as f:
-#         content = f.read()
-#         if content.startswith('---'):
-#             content = content.split('---', 2)[-1]  # remove front matter
-#     html = markdown.markdown(content)
-#     return render(request, 'blog/post.html', {'content': html})
-
 def search(request):
     query = request.GET.get("q")
     posts_dir = os.path.join(settings.BASE_DIR, 'blog', 'posts')
