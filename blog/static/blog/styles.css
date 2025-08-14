@@ -1,5 +1,10 @@
-h1 {
-    color: green;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+  }
+
+.hero-text {
+    color: red;
     text-align: center;
     margin-bottom: 2em;
 }
@@ -10,8 +15,8 @@ a {
 }
 
 .content-block {
-    width: 90%;
-    max-width: 800px;
+    width: 85%;
+    max-width: 700px;
     margin: 0 auto;
 }
 

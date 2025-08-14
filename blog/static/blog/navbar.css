@@ -1,0 +1,96 @@
+  nav {
+    background-color: #0a0a23;
+    color: #fff;
+    padding: 5px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 3px 12px rgba(10, 10, 10, 0.15);
+    z-index: 999;
+  }
+
+  .logo {
+    font-size: 1.0rem;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  .menu {
+    display: flex;
+    gap: 5px;
+  }
+
+  .menu a {
+    font-family: Gurmukhi Sangam MN;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+    font-weight: 600;
+  }
+
+  .menu a:hover {
+    background-color: #2e2e42;
+    /* color: #ffb347; */
+    color: #e5e5e5;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    width: 26px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+  }
+
+  #menu-toggle {
+    display: none;
+  }
+
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+
+    .menu {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background-color: #1e1e2f;
+      padding: 20px;
+      margin: 0 auto;
+      max-width: 92%;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu a {
+      width: 100%;
+      text-align: left;
+      padding: 14px 10px;
+      border-bottom: 1px solid #333;
+      background-color: #2a2a3d;
+      border-radius: 8px;
+      margin-bottom: 0px;
+    }
+
+    #menu-toggle:checked + .hamburger + .menu {
+      display: flex;
+    }
+  }
