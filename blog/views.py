@@ -4,7 +4,7 @@ from .models import EmailVerification
 from .forms import EmailForm, CodeForm
 import uuid
 from django.core.mail import send_mail
-
+import datetime
 from django.conf import settings
 from django.http import Http404
 import markdown
@@ -23,17 +23,36 @@ def index(request):
     posts_dir = os.path.join(settings.BASE_DIR, 'blog', 'posts')
     files = [f for f in os.listdir(posts_dir) if f.endswith('.md')]
     posts = []
-    for filename in sorted(files, reverse=True):
+
+    for filename in files:
         filepath = os.path.join(posts_dir, filename)
         meta = parse_front_matter(filepath)
         slug = filename[:-3]
+
+        # Get date from YAML front matter
+        date_value = meta.get('date', '1900-01-01')
+
+        # Handle if date is a datetime.date object or a string
+        if isinstance(date_value, datetime.date):
+            date_obj = datetime.datetime.combine(date_value, datetime.datetime.min.time())
+        else:
+            try:
+                date_obj = datetime.datetime.strptime(date_value, "%Y-%m-%d")
+            except ValueError:
+                date_obj = datetime.datetime.min
+
         posts.append({
             'slug': slug,
             'title': meta.get('title', slug),
             'thumbnail': meta.get('thumbnail', '/static/images/default.jpg'),
-            'date': meta.get('date', 'Unknown Date')
+            'date': date_value,
+            'date_obj': date_obj
         })
 
+    # Sort by date descending (newest first)
+    posts.sort(key=lambda p: p['date_obj'], reverse=True)
+
+    # Pagination
     per_page = 2
     page_str = request.GET.get('page', '1')
     try:
