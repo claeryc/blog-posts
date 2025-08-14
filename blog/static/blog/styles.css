@@ -1,3 +1,10 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
@@ -15,19 +22,25 @@ a {
 }
 
 .content-block {
-    width: 85%;
+    width: 80%;
     max-width: 700px;
     margin: 0 auto;
 }
 
-.card-container {
+.project-block {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.p_card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
 }
 
-.card {
+.p_card {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -41,7 +54,7 @@ a {
     color: inherit;
 }
 
-.card img {
+.p_card img {
     width: 30%;
     max-width: 150px;
     height: auto;
@@ -50,12 +63,12 @@ a {
     margin-right: 15px;
 }
 
-.card-title {
+.p_card-title {
     font-size: 1.2em;
     font-weight: bold;
 }
 
-.card-date {
+.p_card-date {
     font-size: 0.9em;
     color: gray;
     margin-top: 4px;
@@ -63,12 +76,12 @@ a {
 
 /* Mobile adjustments */
 @media screen and (max-width: 600px) {
-    .card {
+    .p_card {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .card img {
+    .p_card img {
         width: 100%;
         max-width: 100%;
         margin-right: 0;

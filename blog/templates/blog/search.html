@@ -8,13 +8,13 @@
     <h2 style="text-align:center;">Search Results for "{{ query }}"</h2>
 
     {% if matches %}
-        <div class="card-container">
+        <div class="p_card-container">
             {% for post in matches %}
-            <a class="card" href="{% url 'post' slug=post.slug %}">
+            <a class="p_card" href="{% url 'post' slug=post.slug %}">
                 <img src="{{ post.thumbnail }}" alt="{{ post.title }}">
                 <div>
-                    <div class="card-title">{{ post.title }}</div>
-                    <div class="card-date">{{ post.date }}</div>
+                    <div class="p_card-title">{{ post.title }}</div>
+                    <div class="p_card-date">{{ post.date }}</div>
                 </div>
             </a>
             {% endfor %}
