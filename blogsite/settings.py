@@ -9,7 +9,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')  # <-- Set in Render environment
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['yourrenderapp.onrender.com', 'claeryc.com', 'www.claeryc.com']
+ALLOWED_HOSTS = [
+    "claeryc-blog.onrender.com",
+    "localhost",
+    "127.0.0.1"
+]
 
 # Installed apps
 INSTALLED_APPS = [
