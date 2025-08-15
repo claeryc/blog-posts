@@ -6,8 +6,10 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY
-SECRET_KEY = os.environ.get('SECRET_KEY')  # <-- Set in Render environment
+SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = "django-insecure-<random-string-here>"
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+# DEBUG = True
 
 ALLOWED_HOSTS = [
     "claeryc-blog.onrender.com",
