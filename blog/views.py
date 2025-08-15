@@ -196,8 +196,9 @@ def post(request, slug):
         content = f.read()
         if content.startswith('---'):
             content = content.split('---', 2)[-1]  # remove front matter
-            
-    html = markdown.markdown(
+    # html = markdown.markdown(content)
+    # return render(request, 'blog/post.html', {'content': html})
+        html = markdown.markdown(
         content,
         extensions=['extra', 'codehilite', 'toc'],
         output_format='html5'
