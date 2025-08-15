@@ -1,7 +1,7 @@
 ---
 title: My Life in China
 thumbnail: /static/images/ghostp.jpg
-date: 2025-08-13
+date: 2025-08-14
 restricted: true
 ---
 # My Third Blog Post
@@ -13,7 +13,7 @@ Welcome to my blog! This is **Markdown**.
   <strong>Disclaimer:</strong> This is just the framework for the content...
 </div>
 
-List:
+List Items:
 
 1. Item 1  
 2. Item 2  
