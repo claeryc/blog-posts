@@ -8,6 +8,7 @@
     position: relative;
     box-shadow: 0 3px 12px rgba(10, 10, 10, 0.15);
     z-index: 999;
+    height: 75px;
   }
 
   .logo {

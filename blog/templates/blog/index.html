@@ -8,15 +8,18 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-text">
+            <header>
             <h1>Welcome to My Blog</h1>
+        </header>
             <p>Insights, stories, and ideas.</p>
         </div>
     </section>
 
+    <div class="project-block">
     <div class="hero-image">
     <img src="../../static/images/ghostp.jpg">
     </div>
-
+    </div>
     <!-- Map & Tooltips -->
     {% include "blog/map.html" %}
 
@@ -25,6 +28,7 @@
         <form action="{% url 'search' %}" method="get">
             <label for="search">Search: </label>
             <input id="search" class="search" type="text" name="q" placeholder="Enter title name">
+            <button id="all" class="all" placeholder="all posts">all posts</button>
         </form>
     </div>
 

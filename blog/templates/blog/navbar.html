@@ -1,7 +1,9 @@
   <nav>
+  <a href="{% url 'index' %}">
   <div class="logo">
       <h3 class="logo-title"><span class="name-wrapper"><span id="scrambleName">Eric's Blog</span></span></h3>
   </div>
+  </a>
 
   <input type="checkbox" id="menu-toggle">
   <label for="menu-toggle" class="hamburger">
@@ -17,3 +19,37 @@
     <a href="#">Contact</a>
   </div>
 </nav>
+
+<script>
+  const original = "Eric's Blog";
+  const alternate = "思烨的博客";
+  let showingOriginal = true;
+  let interval;
+  
+  function scrambleText(element, text) {
+    const chars = "!@#$%^&*()_+=-{}[];:<>?,.";
+    let iterations = 0;
+  
+    clearInterval(interval);
+    interval = setInterval(() => {
+      const scrambled = text.split("")
+        .map((char, i) => {
+          if (i < iterations) return char;
+          return chars[Math.floor(Math.random() * chars.length)];
+        }).join("");
+  
+      element.textContent = scrambled;
+  
+      if (iterations >= text.length) {
+        clearInterval(interval);
+      }
+      iterations += 1 / 2;
+    }, 50);
+  } 
+  
+  setInterval(() => {
+    const nameEl = document.getElementById("scrambleName");
+    showingOriginal = !showingOriginal;
+    scrambleText(nameEl, showingOriginal ? original : alternate);
+  }, 3000);
+  </script> 
