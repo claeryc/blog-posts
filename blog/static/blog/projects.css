@@ -36,13 +36,13 @@
     max-width: 300px;
     aspect-ratio: 9 / 15.5;
     max-height: 50vh;
-    border-radius: 1.75rem;
+    border-radius: 1.25rem;
     overflow: hidden;
     background-size: cover;
     background-position: center;
     box-shadow:
-        0 0 0 2px rgba(255, 214, 102, 0.4),
-        0 0 25px 8px rgba(255, 214, 102, 0.15);
+        0 0 0 1px rgba(255, 214, 102, 0.4),
+        0 0 18px 4px rgba(255, 214, 102, 0.15);
     transform-style: preserve-3d;
     transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
                 box-shadow 0.4s ease-out,
@@ -54,8 +54,8 @@
   
   .card-container:hover {
     box-shadow:
-        0 0 0 3px rgba(255, 214, 102, 0.6),
-        0 0 20px 8px rgba(255, 214, 102, 0.25);
+        0 0 0 2px rgba(255, 214, 102, 0.6),
+        0 0 18px 6px rgba(255, 214, 102, 0.25);
   }
   
   .inner-border-overlay {
