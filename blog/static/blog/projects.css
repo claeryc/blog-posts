@@ -254,11 +254,11 @@
 }
 
 .card-container.zhejiang {
-  background-image: url("/static/images/zhejiang.png");
+  background-image: url("../images/zhejiang.png");
 }
 .card-container.dnd {
-  background-image: url("/static/images/dnd.jpg");
+  background-image: url("../images/dnd.jpg");
 }
 .card-container.bookcafe {
-  background-image: url("/static/images/bookcafe.jpg");
+  background-image: url("../images/bookcafe.jpg");
 }
