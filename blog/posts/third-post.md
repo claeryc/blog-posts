@@ -1,13 +1,13 @@
 ---
 title: My Life in China
-thumbnail: /static/images/ghostp.jpg
+thumbnail: /static/images/blog_thailand-banner.jpg
 date: 2025-08-14
 restricted: false
 ---
-# My Third Blog Post
+# Traveling outside my comfort zone
 My travel experience in **Thailand**.
 
-![|700x200](/static/blog/images/blog_thailand-banner.jpg)
+![Thailand](/static/images/blog_thailand-banner.jpg)
 
 <div class="callout warning">
   <strong>Disclaimer:</strong> I wrote this blog post in Chinese so I am able to track / compare my progress in the future
