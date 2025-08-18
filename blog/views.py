@@ -199,9 +199,9 @@ def post(request, slug):
     # html = markdown.markdown(content)
     # return render(request, 'blog/post.html', {'content': html})
         html = markdown.markdown(
-        content,
-        extensions=['extra', 'codehilite', 'toc'],
-        output_format='html5'
-    )
+            content,
+            extensions=['extra', 'codehilite', 'toc'],
+            output_format='html5'
+        )
 
     return render(request, 'blog/post.html', {'content': html})
