@@ -14,7 +14,9 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = [
     "claeryc-blog.onrender.com",
     "localhost",
-    "127.0.0.1"
+    "127.0.0.1",
+    "www.claeryc.com",
+    "claeryc.com"
 ]
 
 # Installed apps
