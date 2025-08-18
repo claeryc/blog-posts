@@ -55,7 +55,7 @@
   .card-container:hover {
     box-shadow:
         0 0 0 3px rgba(255, 214, 102, 0.6),
-        0 0 35px 12px rgba(255, 214, 102, 0.25);
+        0 0 20px 8px rgba(255, 214, 102, 0.25);
   }
   
   .inner-border-overlay {
