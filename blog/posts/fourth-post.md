@@ -18,10 +18,15 @@ which often differ a lot from the original image
 The procedure would be played out as follows:
 The user uses a prompt which lets the AI-model (i.e. ChatGPT) to create an image:
 Text input: "create an image of Mona Lisa"
--  image is being created (Mona Lisa)
+
+- image is being created (Mona Lisa)
+
 Text input: "describe the image"
+
 - model describes the image (derives a bit from the original)
+
 Text input: "create an image which looks like this:"
+
 - user inserts the generated description in their own prompt
 - model creates an image which looks different from the original version
 
