@@ -252,3 +252,13 @@
         height: 50px;
     }
 }
+
+.card-container.zhejiang {
+  background-image: url("../images/zhejiang.png");
+}
+.card-container.dnd {
+  background-image: url("../images/dnd.jpg");
+}
+.card-container.bookcafe {
+  background-image: url("../images/bookcafe.jpg");
+}
