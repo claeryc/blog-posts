@@ -12,7 +12,7 @@ body {
 
   .hero {
     text-align: center; /* keeps h1 centered */
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
   }
   
 .hero-content {
@@ -37,7 +37,7 @@ body {
   }
 
   .hero-image2 img {
-    max-width: 100%;
+    max-width: 80%;
     border-radius: 8px;
   }
   
@@ -129,7 +129,6 @@ a {
     .hero-image {
         width: 90%;
         max-width: 300px;
-        height: 200px;
     }
 }
 
