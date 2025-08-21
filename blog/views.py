@@ -255,7 +255,7 @@ def blogview(request):
     prev_page = page - 1 if page > 1 else None
     next_page = page + 1 if end < len(posts) else None
 
-    return render(request, 'blogview.html', {
+    return render(request, 'blog/blogview.html', {
         'posts': paginated_posts,
         'prev_page': prev_page,
         'next_page': next_page
