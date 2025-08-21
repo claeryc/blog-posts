@@ -145,3 +145,36 @@ width: 100%;
 height: 100%;
 border: 0;
 }
+
+/* BUTTON FOR ALL POSTS */
+button,
+a.all {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #0077cc;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Hover + focus */
+button:hover,
+a.all:hover,
+button:focus,
+a.all:focus {
+  background-color: #005fa3;
+  outline: none;
+  transform: translateY(-1px);
+}
+
+/* Active (pressed) */
+button:active,
+a.all:active {
+  background-color: #004f88;
+  transform: translateY(0);
+}
