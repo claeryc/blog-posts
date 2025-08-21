@@ -51,6 +51,7 @@ a {
     align-items: center;
     width: 90%;
     max-width: 600px;
+    min-height: 114px;
     background: #f8f8f8;
     padding: 10px;
     border-radius: 10px;
