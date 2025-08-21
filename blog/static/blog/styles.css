@@ -29,9 +29,19 @@ body {
     max-width: 100%;
     border-radius: 8px;
   }
-  .project-block {
+
+.project-block {
     margin: 2rem auto;
     text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .project-block .hero-image img {
+    width: 600px;
+    max-width: 90%;
+    height: auto;
+    border-radius: 12px;
   }
   
   .project-block img {
