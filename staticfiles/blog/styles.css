@@ -10,16 +10,28 @@ body {
     background-color: #f4f4f4;
   }
 
-.hero-text {
-    color: black;
-    text-align: center;
-    margin-bottom: 1em;
-    font-size: 1.5em;
-    padding: 0px;
-}
-.hero-text p {
-    margin: 0;
-}
+  .hero {
+    text-align: center; /* keeps h1 centered */
+    margin-bottom: 2rem;
+  }
+  
+  .hero-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; /* space between img + text */
+  }
+  
+  .hero-image img {
+    max-width: 300px;  /* adjust as needed */
+    border-radius: 8px;
+  }
+  
+  .hero-text {
+    font-size: 1.2rem;
+    max-width: 400px;
+    text-align: left;
+  }
 
 a {
     text-decoration: none;
@@ -107,22 +119,6 @@ a {
     }
 }
 
-.hero-image {
-    width: 100%;
-    max-width: 500px;
-    height: 300px;
-    overflow: hidden;
-    justify-content: center;
-    margin: 0 auto;
-    margin-bottom: 50px;
-}
-
-.hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
 
 .callout {
     border-left: 4px solid #f39c12;
