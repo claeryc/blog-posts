@@ -4,6 +4,7 @@
     Blogs
 {% endblock %}
 
+{% block content %}
 <!-- Search -->
 <div style="display: flex; justify-content: center; margin-bottom: 2em;">
     <form action="{% url 'search' %}" method="get">
@@ -33,3 +34,5 @@
         <a href="?page={{ next_page }}#posts">Next</a>
     {% endif %}
 </div>
+
+{% endblock %}
