@@ -14,6 +14,10 @@ body {
     text-align: center; /* keeps h1 centered */
     /* margin-bottom: 2rem; */
   }
+  .hero h1 {
+    font-size: 1.5em;
+    margin: 0.2em;
+  }
   
 .hero-content {
   max-width: 1000px;
@@ -33,7 +37,8 @@ body {
   .hero-image2 {
     display: flex;
     justify-content: center;
-    max-width: 500px;
+    /* max-width: 500px; */
+    margin-bottom: 2em;
   }
 
   .hero-image2 img {
