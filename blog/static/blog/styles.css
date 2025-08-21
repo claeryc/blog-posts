@@ -19,9 +19,10 @@ body {
   max-width: 1000px;
   margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  column-gap: 2rem;
 }
   
   .hero-image img {
@@ -29,8 +30,14 @@ body {
     border-radius: 8px;
   }
 
-  .hero-image2 img {
+  .hero-image2 {
+    display: flex;
+    justify-content: center;
     max-width: 500px;
+  }
+
+  .hero-image2 img {
+    max-width: 100%;
     border-radius: 8px;
   }
   
@@ -157,11 +164,11 @@ border: 0;
 button,
 a.all {
   display: inline-block;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: #fff;
-  background-color: #0077cc;
+  background-color: linear-gradient(145deg, #facc15, #eab308);
   border: none;
   border-radius: 6px;
   text-decoration: none;
@@ -174,7 +181,7 @@ button:hover,
 a.all:hover,
 button:focus,
 a.all:focus {
-  background-color: #005fa3;
+  background-color: linear-gradient(145deg, #efd66e, #eab308);
   outline: none;
   transform: translateY(-1px);
 }
@@ -182,6 +189,6 @@ a.all:focus {
 /* Active (pressed) */
 button:active,
 a.all:active {
-  background-color: #004f88;
+  background-color: linear-gradient(145deg, #efcd48, #eec23b);
   transform: translateY(0);
 }
