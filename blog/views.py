@@ -204,3 +204,59 @@ def post(request, slug):
     )
 
     return render(request, 'blog/post.html', {'content': html})
+
+def blogview(request):
+    posts_dir = os.path.join(settings.BASE_DIR, 'blog', 'posts')
+    files = [f for f in os.listdir(posts_dir) if f.endswith('.md')]
+    posts = []
+
+    for filename in files:
+        filepath = os.path.join(posts_dir, filename)
+        meta = parse_front_matter(filepath)
+        slug = filename[:-3]
+
+        # Get date from YAML front matter
+        date_value = meta.get('date', '1900-01-01')
+
+        # Handle if date is a datetime.date object or a string
+        if isinstance(date_value, datetime.date):
+            date_obj = datetime.datetime.combine(date_value, datetime.datetime.min.time())
+        else:
+            try:
+                date_obj = datetime.datetime.strptime(date_value, "%Y-%m-%d")
+            except ValueError:
+                date_obj = datetime.datetime.min
+
+        posts.append({
+            'slug': slug,
+            'title': meta.get('title', slug),
+            'thumbnail': meta.get('thumbnail', '/static/images/default.jpg'),
+            'date': date_value,
+            'date_obj': date_obj
+        })
+
+    # Sort by date descending (newest first)
+    posts.sort(key=lambda p: p['date_obj'], reverse=True)
+
+    # Pagination
+    per_page = 10
+    page_str = request.GET.get('page', '1')
+    try:
+        page = int(page_str)
+        if page < 1:
+            page = 1
+    except ValueError:
+        page = 1
+
+    start = (page - 1) * per_page
+    end = start + per_page
+    paginated_posts = posts[start:end]
+
+    prev_page = page - 1 if page > 1 else None
+    next_page = page + 1 if end < len(posts) else None
+
+    return render(request, 'blogview.html', {
+        'posts': paginated_posts,
+        'prev_page': prev_page,
+        'next_page': next_page
+    })
