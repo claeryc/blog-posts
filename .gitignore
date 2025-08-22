@@ -15,4 +15,4 @@ myblogenv/
 # IDE/editor files
 .vscode/
 .idea/
-
+.env
