@@ -173,7 +173,7 @@ a.all {
   font-size: 0.8rem;
   font-weight: 500;
   color: #fff;
-  background-color: linear-gradient(145deg, #facc15, #eab308);
+  background: linear-gradient(145deg, #facc15, #eab308);
   border: none;
   border-radius: 6px;
   text-decoration: none;
@@ -186,7 +186,7 @@ button:hover,
 a.all:hover,
 button:focus,
 a.all:focus {
-  background-color: linear-gradient(145deg, #efd66e, #eab308);
+  background: linear-gradient(145deg, #efd66e, #eab308);
   outline: none;
   transform: translateY(-1px);
 }
@@ -194,6 +194,6 @@ a.all:focus {
 /* Active (pressed) */
 button:active,
 a.all:active {
-  background-color: linear-gradient(145deg, #efcd48, #eec23b);
+  background: linear-gradient(145deg, #efcd48, #eec23b);
   transform: translateY(0);
 }
