@@ -13,6 +13,7 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
     "claeryc-blog.onrender.com",
+    "claeryc.pythonanywhere.com",
     "localhost",
     "127.0.0.1",
     "www.claeryc.com",
