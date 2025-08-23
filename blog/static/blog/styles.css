@@ -203,6 +203,42 @@ td, th {
     padding: 0.5rem;
   }
 
+  @media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+  
+    th {
+      display: none; /* hide headers */
+      border: 1px solid #999;
+      padding: 0.5rem;
+    }
+  
+    td {
+      border: none;
+      position: relative;
+      padding-left: 50%;
+      padding: 0.5rem;
+    }
+  
+    td::before {
+        content: attr(data-label);
+        position: relative;
+        left: 0;
+        width: 45%;
+        white-space: nowrap;
+        padding-right: 5px;
+    }
+    .card-border {
+        border: 1px solid #999;
+        margin-bottom: 5px;
+        border-radius: 5px;
+    }
+    .lang-res_name {
+        font-weight: 600;
+    }
+  }
+
 .rank-s {
     background: rgb(241, 136, 120);
 }
