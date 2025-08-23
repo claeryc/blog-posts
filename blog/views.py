@@ -262,4 +262,4 @@ def blogview(request):
     })
 
 def chinese(request):
-    return render(request, "chinese.html")
+    return render(request, "blog/chinese.html")
