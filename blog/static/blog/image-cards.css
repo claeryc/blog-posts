@@ -78,7 +78,7 @@
     top: 0.5rem;
     left: 0;
     background: #222;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     padding: 0.5rem;
     border-radius: 0 .75rem .75rem 0;
   }
@@ -120,7 +120,7 @@
     font-family: "Material Symbols Outlined";
     background: #222;
     color: rgb(0, 0, 0);
-    border-radius: 100% 0 0 100%;
+    border-radius: 0.75rem 0px 0px 0.75rem;
     padding: 0.25rem;
   }
   
