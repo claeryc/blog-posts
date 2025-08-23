@@ -240,16 +240,22 @@ td, th {
     .lang-res_name {
         font-weight: 600;
     }
+    .rank-s, .rank-a, .rank-b {
+        text-align: left;
+    }
   }
 
 .rank-s {
     background: rgb(241, 136, 120);
+    text-align: center;
 }
 .rank-a {
     background: rgb(247, 188, 151);
+    text-align: center;
 }
 .rank-b {
     background: rgb(235, 212, 145);
+    text-align: center;
 }
 
 /* TABLE OF CONTENT */
