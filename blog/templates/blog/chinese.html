@@ -1,5 +1,9 @@
 {% extends "blog/layout.html" %}
 
+{% block extra_css %}
+<link href="{% static 'blog/image-cards.css' %}" rel="stylesheet">
+{% endblock %}
+
 {% block title %}
     Blogs
 {% endblock %}
