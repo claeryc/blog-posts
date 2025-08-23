@@ -142,3 +142,12 @@
     font-family: "Material Symbols Outlined";
     content: "navigation";
   }
+  
+@media screen and (max-width: 600px) {
+    .content-block img {
+    display: inline-block;
+    }
+    .image-cards .day-card .meta {
+        transform: translateY(0);  /* always visible */
+      }
+}
