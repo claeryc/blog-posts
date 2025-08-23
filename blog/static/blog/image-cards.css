@@ -14,7 +14,7 @@
     grid-auto-flow: column;
     scroll-snap-type: x mandatory;
     overflow-x: auto;
-    width: 100vw;
+    width: 100%;
     margin-left: calc(-1 * var(--body-padding));
     scrollbar-width: none;
     scroll-behavior: smooth;
@@ -67,6 +67,7 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 500;
+    margin-top: 0;
   }
   
   .image-cards .day-card::before {
@@ -119,7 +120,7 @@
     font-size: 1.25rem;
     font-family: "Material Symbols Outlined";
     background: #222;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     border-radius: 0.75rem 0px 0px 0.75rem;
     padding: 0.25rem;
   }
