@@ -260,3 +260,6 @@ def blogview(request):
         'prev_page': prev_page,
         'next_page': next_page
     })
+
+def chinese(request):
+    return render(request, "chinese.html")
