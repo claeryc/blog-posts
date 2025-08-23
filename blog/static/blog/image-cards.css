@@ -3,9 +3,8 @@
     --body-padding: 2rem;
     --card-width: 300px;
     font-family: system-ui;
-    padding: var(--body-padding) var(--body-padding) 8rem;
-    background: black;
-    color: white;
+    background: color(srgb 0.957 0.957 0.9571);
+    color: rgb(0, 0, 0);
   }
   
   /* Carousel container */
@@ -79,7 +78,7 @@
     top: 0.5rem;
     left: 0;
     background: #222;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 0.5rem;
     border-radius: 0 .75rem .75rem 0;
   }
@@ -99,13 +98,13 @@
     border-bottom: 3px solid dimgray;
     text-decoration: none;
     padding-bottom: 0.25rem;
-    color: white;
+    color: rgb(0, 0, 0);
   }
   
   /* Trip overview title */
   .image-cards h1 {
     font-size: 3rem;
-    line-height: 2;
+    line-height: 1;
     margin-bottom: 1rem;
   }
   
@@ -120,7 +119,7 @@
     font-size: 1.25rem;
     font-family: "Material Symbols Outlined";
     background: #222;
-    color: white;
+    color: rgb(0, 0, 0);
     border-radius: 100% 0 0 100%;
     padding: 0.25rem;
   }
