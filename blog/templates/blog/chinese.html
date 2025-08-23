@@ -6,16 +6,54 @@
 
 {% block content %}
 <div class="content-block">
+
+<section id="learning-content_list">
+    <h2>Table of Contents</h2>
+    <ul>
+        <li><a href="#learning-story">My Story</a></li>
+        <li><a href="#learning-resources">Learning Resources</a></li>
+        <li>
+            <a href="#learning-progress">Progress</a>
+            <ul>
+                <!-- Each progress update gets listed here -->
+                <li><a href="#progress-2025-08-01">Finished HSK2 <small>(Aug 1, 2025)</small></a></li>
+                <li><a href="#progress-2025-08-15">Started HSK3 <small>(Aug 15, 2025)</small></a></li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section id="learning-story">
+    <h1 class="hero-text">My Learning Story</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione cum culpa sapiente quia expedita neque dolorum consectetur doloremque explicabo cupiditate laborum delectus, ex odit voluptates, voluptate animi placeat. Sint, cum?</p>
+</section>
+
 <br>
 <section id="learning-resources">
     <h1 class="hero-text">Learning Resources</h1>
     <p>Here are my favorite resources for languge learning.</p>
-    <br>
     {% include "blog/lang_resources.html" %}
     <br>
     <div class="callout warning">
-        <strong>Offer:</strong> Use my <a href="#" style="color:blue; border-bottom: black 1px solid;">link</a> to get a discount when using <strong>HelloChinese</strong>!
-      </div>
+        <strong>Offer:</strong> Use my <a href="#" style="font-style: italic; border-bottom: black 1px solid;">link</a> to get a discount when using <strong>HelloChinese</strong>!
+    </div>
+</section>
+
+<section id="learning-progress">
+    <h1 class="hero-text">Progress</h1>
+
+    <!-- Example Progress Update -->
+    <div class="progress-entry" id="progress-2025-08-01">
+        <h2>Finished HSK2</h2>
+        <p class="progress-date">Aug 1, 2025</p>
+        <p>I finally finished HSK2... 🚀</p>
+    </div>
+
+    <div class="progress-entry" id="progress-2025-08-15">
+        <h2>Started HSK3</h2>
+        <p class="progress-date">Aug 15, 2025</p>
+        <p>Excited to move forward with HSK3 materials...</p>
+    </div>
 </section>
 
 </div>

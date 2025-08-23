@@ -251,3 +251,22 @@ td, th {
 .rank-b {
     background: rgb(235, 212, 145);
 }
+
+/* TABLE OF CONTENT */
+.toc-list {
+    list-style: none;
+    padding-left: 0;
+}
+.toc-list li {
+    margin: 5px 0;
+}
+.toc-list a {
+    text-decoration: none;
+    color: #0073e6;
+    border-bottom: 1px dotted #0073e6;
+    transition: color 0.2s ease;
+}
+.toc-list a:hover {
+    color: #005bb5;
+    border-bottom-color: #005bb5;
+}
