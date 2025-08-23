@@ -197,3 +197,18 @@ a.all:active {
   background: linear-gradient(145deg, #efcd48, #eec23b);
   transform: translateY(0);
 }
+
+td, th {
+    border: 1px solid #999;
+    padding: 0.5rem;
+  }
+
+.rank-s {
+    background: rgb(241, 136, 120);
+}
+.rank-a {
+    background: rgb(247, 188, 151);
+}
+.rank-b {
+    background: rgb(235, 212, 145);
+}
