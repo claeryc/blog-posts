@@ -19,7 +19,8 @@ body {
   main.mcontent {
     flex: 1; /* grow to push footer down */
     padding-top: calc(100px + env(safe-area-inset-top));
-    padding-bottom: calc(50px + env(safe-area-inset-bottom));
+    /* padding-bottom: calc(50px + env(safe-area-inset-bottom)); */
+    padding-bottom: 50px;
   }
 
   .page-wrapper {
