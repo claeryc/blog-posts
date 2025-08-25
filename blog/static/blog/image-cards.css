@@ -71,8 +71,9 @@
   }
   
   .image-cards .day-card::before {
-    counter-increment: day;
-    content: "Day " counter(day);
+    /* counter-increment: day; */
+    /* content: "Day " counter(day); */
+    content: none;
     font-size: 0.8rem;
     display: block;
     position: absolute;
@@ -117,17 +118,17 @@
     position: absolute;
     top: 0.5rem;
     right: 0;
-    font-size: 1.25rem;
+    font-size: 0.8rem;
     font-family: "Material Symbols Outlined";
     background: #222;
     color: rgb(255, 255, 255);
     border-radius: 0.75rem 0px 0px 0.75rem;
-    padding: 0.25rem;
+    padding: 0.5rem;
   }
   
   .image-cards .flight::after { content: "travel"; }
   .image-cards .train::after { content: "train"; }
-  .image-cards .car::after { content: "directions_car"; }
+  .image-cards .car::after { content: "car"; }
   
   /* Plane icon indicator */
   .image-cards .plane {
