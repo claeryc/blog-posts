@@ -20,6 +20,7 @@
     scroll-behavior: smooth;
   }
   
+  
   /* Hide native scrollbar for webkit */
   .image-cards .carousel::-webkit-scrollbar {
     display: none;

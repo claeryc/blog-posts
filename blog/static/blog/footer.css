@@ -16,22 +16,22 @@
     left: 3rem;                  /* stick to left */
     top: -55%;                   /* make it stick out 20% above footer */
   }
+  .footer-logo img {
+    width: 90px; /* default for large screens */
+    height: auto;
+}
+
 @media (max-width: 940px) {
   .footer-logo {
     position: absolute;
     left: 2rem;                  /* stick to left */
-    top: -25%;                   /* make it stick out 20% above footer */
+    top: -45%;                   /* make it stick out 20% above footer */
   }
   .footer-logo img {
-    width: 60px;                 /* adjust size as needed */
+    width: 60px; /* smaller for mobile/tablet */
     height: auto;
   }
 }
-
-  .footer-logo img {
-    width: 90px;                 /* adjust size as needed */
-    height: auto;
-  }
   
   .footer-content {
     max-width: 800px;
