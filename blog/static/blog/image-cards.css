@@ -1,7 +1,7 @@
 /* image-cards.css */
 .image-cards {
-    --body-padding: 0.5rem;
-    --card-width: 290px;
+    --body-padding: 1rem;
+    --card-width: 280px;
     font-family: system-ui;
     background: color(srgb 0.957 0.957 0.9571);
     color: rgb(0, 0, 0);

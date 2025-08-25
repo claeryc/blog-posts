@@ -17,7 +17,7 @@ body {
   }
 
   main.mcontent {
-    padding-top: calc(75px + env(safe-area-inset-top));
+    padding-top: calc(100px + env(safe-area-inset-top));
     padding-bottom: calc(120px + env(safe-area-inset-bottom));
   }
   .hero {
