@@ -49,3 +49,12 @@
   .footer-links a:hover {
     color: #fff;
   }
+
+  /* Extend background to safe area */
+.site-footer::after {
+    content: '';
+    display: block;
+    height: env(safe-area-inset-bottom);
+    width: 100%;
+    background: #0a0a23;
+  }

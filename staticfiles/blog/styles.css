@@ -16,6 +16,10 @@ body {
     background-color: #f4f4f4;
   }
 
+  main.mcontent {
+    padding-top: calc(75px + env(safe-area-inset-top));
+    padding-bottom: calc(120px + env(safe-area-inset-bottom));
+  }
   .hero {
     text-align: center; /* keeps h1 centered */
     /* margin-bottom: 2rem; */

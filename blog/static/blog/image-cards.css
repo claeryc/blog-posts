@@ -1,6 +1,6 @@
 /* image-cards.css */
 .image-cards {
-    --body-padding: 2rem;
+    --body-padding: 1rem;
     --card-width: 300px;
     font-family: system-ui;
     background: color(srgb 0.957 0.957 0.9571);
