@@ -1,14 +1,15 @@
-  nav {
+  .navbar {
     background-color: #0a0a23;
     color: #fff;
     padding: 5px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    position: fixed;
+    width: 100%;
+    top: 0;
     box-shadow: 0 3px 12px rgba(10, 10, 10, 0.15);
     z-index: 999;
-    height: 75px;
     padding: calc(env(safe-area-inset-top) + 1rem) 1rem 1rem;
   }
 
