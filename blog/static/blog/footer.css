@@ -14,9 +14,9 @@
   .footer-logo {
     position: absolute;
     left: 3rem;                  /* stick to left */
-    top: -25%;                   /* make it stick out 20% above footer */
+    top: -55%;                   /* make it stick out 20% above footer */
   }
-@media (max-width: 768px) {
+@media (max-width: 940px) {
   .footer-logo {
     position: absolute;
     left: 2rem;                  /* stick to left */
@@ -25,7 +25,7 @@
 }
 
   .footer-logo img {
-    width: 60px;                 /* adjust size as needed */
+    width: 90px;                 /* adjust size as needed */
     height: auto;
   }
   
