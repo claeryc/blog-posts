@@ -22,6 +22,10 @@
     left: 2rem;                  /* stick to left */
     top: -25%;                   /* make it stick out 20% above footer */
   }
+  .footer-logo img {
+    width: 60px;                 /* adjust size as needed */
+    height: auto;
+  }
 }
 
   .footer-logo img {

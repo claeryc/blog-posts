@@ -73,13 +73,13 @@
       align-items: center;
       justify-content: center;
       position: absolute;
-      top: 70px;
+      top: 80px;
       left: 0;
       right: 0;
       background-color: #1e1e2f;
       padding: 20px;
       margin: 0 auto;
-      max-width: 92%;
+      max-width: 100%;
       border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
