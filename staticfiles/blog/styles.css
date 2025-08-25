@@ -23,9 +23,18 @@ body {
   }
 
   main.mcontent {
+    flex: 1; /* grow to push footer down */
     padding-top: calc(100px + env(safe-area-inset-top));
     padding-bottom: calc(50px + env(safe-area-inset-bottom));
   }
+
+  .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* fill viewport */
+  }
+  
+
   .hero {
     text-align: center; /* keeps h1 centered */
     /* margin-bottom: 2rem; */

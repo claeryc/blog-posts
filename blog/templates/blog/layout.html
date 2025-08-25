@@ -14,11 +14,12 @@
 </head>
 <body>
     {% include "blog/navbar.html" %}
-
+    <div class="page-wrapper"></div>
     <main class="mcontent">
         {% block content %}{% endblock %}
     </main>
 
     {% include "blog/footer.html" %}
+    </div>
 </body>
 </html>
