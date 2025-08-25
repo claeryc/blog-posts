@@ -20,7 +20,7 @@
   .footer-logo {
     position: absolute;
     left: 2rem;                  /* stick to left */
-    top: -20%;                   /* make it stick out 20% above footer */
+    top: -25%;                   /* make it stick out 20% above footer */
   }
 }
 
