@@ -171,4 +171,7 @@
     .image-cards .day-card .meta {
         transform: translateY(0);  /* always visible */
       }
+    .mobile-adjust {
+      padding-bottom: 80px;
+    }
 }
