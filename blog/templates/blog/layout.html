@@ -12,12 +12,14 @@
     <link href="{% static 'blog/footer.css' %}" rel="stylesheet">
     {% block extra_css %}{% endblock %}
 </head>
-<body class="page-wrapper">
+<body>
     {% include "blog/navbar.html" %}
-    <main class="mcontent">
-        {% block content %}{% endblock %}
-    </main>
 
-    {% include "blog/footer.html" %}
+    <div class="page-wrapper">
+        <main class="mcontent">
+            {% block content %}{% endblock %}
+        </main>
+        {% include "blog/footer.html" %}
+    </div>
 </body>
 </html>

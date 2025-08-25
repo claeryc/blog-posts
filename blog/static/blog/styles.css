@@ -1,31 +1,27 @@
-*,
-*::before,
-*::after {
+html {
   box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
-  }
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+}
 
-  main.mcontent {
-    flex: 1; /* grow to push footer down */
-    padding-top: calc(100px + env(safe-area-inset-top));
-    /* padding-bottom: calc(50px + env(safe-area-inset-bottom)); */
-    padding-bottom: 50px;
-  }
+main.mcontent {
+  flex: 1;
+  padding-top: calc(100px + env(safe-area-inset-top));
+  padding-bottom: 50px;
+}
 
-body.page-wrapper {
-    margin: 0; /* Move margin reset here */
-    padding: 0; /* Move padding reset here */
-    width: 100%;
+  .page-wrapper {
     display: flex;
     flex-direction: column;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Keep your font */
-    background-color: #f4f4f4; /* Keep your background */
     min-height: 100dvh;
-}
+  }
   
 
   .hero {
