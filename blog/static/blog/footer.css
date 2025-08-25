@@ -52,7 +52,7 @@
 
   /* Extend background to safe area */
 .site-footer::after {
-    content: '';
+    /* content: ''; */
     display: block;
     height: env(safe-area-inset-bottom);
     width: 100%;

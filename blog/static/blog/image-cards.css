@@ -1,7 +1,7 @@
 /* image-cards.css */
 .image-cards {
-    --body-padding: 1rem;
-    --card-width: 300px;
+    --body-padding: 0.5rem;
+    --card-width: 290px;
     font-family: system-ui;
     background: color(srgb 0.957 0.957 0.9571);
     color: rgb(0, 0, 0);
@@ -48,7 +48,7 @@
   .image-cards .day-card .meta {
     position: absolute;
     bottom: 0;
-    width: calc(100% - 2rem);
+    /* width: calc(100% - 2rem); */
     transform: translateY(calc(100% - 3rem));
     background: #333;
     color: white;
