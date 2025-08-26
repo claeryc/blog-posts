@@ -1,6 +1,11 @@
+:root {
+  --nav-height: 110px;
+}
+
 html {
   box-sizing: border-box;
 }
+
 *, *::before, *::after {
   box-sizing: inherit;
 }
@@ -70,6 +75,10 @@ main.mcontent {
 a {
     text-decoration: none;
     color: black;
+}
+
+section[id] {
+  scroll-margin-top: var(--nav-height);
 }
 
 .content-block {

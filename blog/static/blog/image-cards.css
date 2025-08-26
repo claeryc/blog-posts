@@ -33,7 +33,13 @@
     overflow: hidden;
     scroll-snap-align: center;
   }
-  
+  img {
+    backface-visibility: hidden;       /* standard property */
+    -webkit-backface-visibility: hidden; /* Safari / WebKit */
+    transform: translateZ(0);          /* standard */
+    -webkit-transform: translateZ(0);  /* Safari / WebKit */
+  }
+
   .image-cards .day-card img {
     aspect-ratio: 4/5;
     object-fit: cover;
@@ -164,6 +170,8 @@
     font-family: "Material Symbols Outlined";
     content: "navigation";
   }
+
+
   
 @media screen and (max-width: 600px) {
     .content-block img {
