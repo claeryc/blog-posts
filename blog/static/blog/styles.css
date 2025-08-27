@@ -371,3 +371,20 @@ td, th {
     margin-bottom: 0.1rem;
     }
 }
+
+details {
+  margin: 1em 0;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fafafa;
+  color: var(--invc);
+}
+details[open] {
+  background: #fff8e5;
+  border-color: #f39c12;
+}
+summary {
+  cursor: pointer;
+  font-weight: bold;
+}

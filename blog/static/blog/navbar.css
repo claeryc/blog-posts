@@ -88,8 +88,8 @@
       padding: 20px;
       margin: 0 auto;
       max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 0px 0px 12px 12px;
+      box-shadow: 0 3px 12px rgba(10, 10, 10, 0.85);
     }
 
     .menu a {
@@ -104,5 +104,8 @@
 
     #menu-toggle:checked + .hamburger + .menu {
       display: flex;
+    }
+    #theme-toggle {
+      margin-top: 15px;
     }
   }

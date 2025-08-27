@@ -19,9 +19,14 @@ List Items:
 3. Item 3  
     - tests 
 
-<div class="video-container">
+
+<details>
+  <summary class="callout-vid">Click to expand</summary>
+  Here is the hidden content.
+  <div class="video-container">
   <iframe src="https://www.youtube.com/embed/X80No0TRaHw" 
           title="YouTube video" 
           allowfullscreen>
   </iframe>
-</div>
+  </div>
+</details>

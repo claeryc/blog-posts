@@ -99,5 +99,23 @@
           }, { passive: true });
         })();
         </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll(".callout-vid").forEach(callout => {
+                callout.addEventListener("click", function() {
+                    // toggle collapse if you’re using collapsibles
+                    this.classList.toggle("collapsed");
+
+                    // scroll 100px down smoothly
+                    window.scrollBy({
+                        top: 450,
+                        left: 0,
+                        behavior: "smooth"
+                    });
+                });
+            });
+        });
+        </script>
 </body>
 </html>
