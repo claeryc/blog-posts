@@ -4,7 +4,7 @@
     --card-width: 280px;
     font-family: system-ui;
     background: var(--bg);
-    color: var(--fg);
+    color: white;
   }
   
   /* Carousel container */
@@ -58,7 +58,7 @@
     bottom: 0;
     transform: translateY(calc(100% - 3rem));
     background: #333;
-    color: var(--fg);
+    color: white;
     padding: 1rem;
     transition: transform 0.5s ease;
   }
@@ -87,7 +87,7 @@
     top: 0.5rem;
     left: 0;
     background: #222;
-    color: var(--fg);
+    color: white;
     font-size: 0.8rem;
     padding: 0.5rem;
     border-radius: 0 .75rem .75rem 0;
@@ -98,7 +98,7 @@
     right: 0;
     font-size: 0.8rem;
     background: #222;
-    color: var(--fg);
+    color: white;
     border-radius: 0.75rem 0 0 0.75rem;
     padding: 0.5rem;
   }
@@ -113,7 +113,7 @@
     top: 0.5rem;
     left: 0;
     background: #222;
-    color: var(--fg);
+    color: white;
     padding: 0.5rem;
     border-radius: 0 .75rem .75rem 0;
   }
@@ -191,7 +191,7 @@
     }
 }
 .meta a {
-  color: var(--fg)
+  color: white
 }
 
 
