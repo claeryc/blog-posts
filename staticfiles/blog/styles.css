@@ -1,5 +1,39 @@
 :root {
   --nav-height: 110px;
+  --bg: #f4f4f4;
+  --fg: #000000;
+  --bcb: #15171e;
+  --fcb: #f4f4f4;
+  --bnb: #0a0a23;
+  --invc: #000000;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f4f4f4;
+    --fg: #000000;
+    --bcb: #15171e;
+    --fcb: #f4f4f4;
+    --bnb: #0a0a23;
+    --invc: #000000;
+  }
+}
+
+:root.light {
+  --bg: #f4f4f4;
+  --fg: #000000;
+  --bcb: #15171e;
+  --fcb: #f4f4f4;
+  --bnb: #0a0a23;
+  --invc: #000000;
+}
+:root.dark {
+  --bg: #15171e;
+  --fg: #ffffff;
+  --bcb: #f4f4f4;
+  --fcb: #15171e;
+  --bnb: #383a5c;
+  --invc: #000000;
 }
 
 html {
@@ -13,7 +47,8 @@ html {
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f4;
+  background: var(--bg);
+  color: var(--fg);
 }
 
 main.mcontent {
@@ -74,7 +109,10 @@ main.mcontent {
 
 a {
     text-decoration: none;
-    color: black;
+    color: var(--fg);
+}
+.callout a {
+  color: var(--invc);
 }
 
 section[id] {
@@ -166,6 +204,7 @@ section[id] {
     border-left: 4px solid #f39c12;
     padding: 1em;
     background: #fff8e5;
+    color: var(--invc);
 }
 .callout.warning {
     border-color: #e67e22;

@@ -1,6 +1,6 @@
 .site-footer {
     position: relative;          /* anchor for logo positioning */
-    background: #0a0a23;
+    background: var(--bnb);
     color: #fff;
     padding: 2rem 1rem 1rem;     /* extra top padding so text isn’t covered */
     display: flex;

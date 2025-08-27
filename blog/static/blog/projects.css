@@ -207,15 +207,15 @@
   .colour-block {
     padding-top: 20px;
     padding-bottom: 30px;
-    background-color: #1e1e1f;
-    color: #f5f6f7;
+    background: var(--bcb); 
+    color: var(--fcb);
   }
 
 
   
   .white-block {
-    background-color: #f5f6f7;
-    color: #000;
+    background: var(--bg);
+    color: var(--fg);
   }
 
 
@@ -224,7 +224,7 @@
     height: 100px;
     overflow: hidden;
     position: relative;
-    background-color: #1e1e1f; 
+    background: var(--bcb); 
     margin-bottom: 5px;
   }
 
@@ -238,7 +238,7 @@
   }
 
   .skew-cc svg path {
-    fill: #f5f6f7;
+    fill: var(--bg);
     stroke: none;
     border: none;
   }
@@ -249,7 +249,7 @@
     height:50px;
     position:absolute;
     left:0px;
-    background: linear-gradient(to left bottom, #f5f6f7 49%, #1e1e1f 50%);
+    background: linear-gradient(to left bottom, var(--bg) 49%, var(--bcb) 50%);
   }
 
   @media screen and (max-width: 768px) {
