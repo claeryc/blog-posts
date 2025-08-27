@@ -12,7 +12,15 @@
     box-shadow: 0 3px 12px rgba(10, 10, 10, 0.85);
     z-index: 999;
     padding: 0rem 2rem 0rem 2rem;
+    transform: translateY(0);
+    transition: transform 280ms ease;
+    will-change: transform;
   }
+
+  /* Hidden state: move navbar up out of view */
+.navbar.hide {
+  transform: translateY(calc(-1 * var(--nav-height)));
+}
 
   .logo {
     font-size: 1.0rem;
