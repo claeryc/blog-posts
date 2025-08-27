@@ -5,8 +5,16 @@
   --bcb: #15171e;
   --fcb: #f4f4f4;
   --bnb: #0a0a23;
-  --invc: #000000;
+  --invc: #0a0a23;
 }
+/* 
+bg = background color
+fg = foreground color
+bcb = background color block
+fcb = foreground color bock
+bnb: background navbar (+ footer)
+invc = inverted color
+*/
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -15,7 +23,7 @@
     --bcb: #15171e;
     --fcb: #f4f4f4;
     --bnb: #0a0a23;
-    --invc: #000000;
+    --invc: #0a0a23;
   }
 }
 
@@ -25,7 +33,7 @@
   --bcb: #15171e;
   --fcb: #f4f4f4;
   --bnb: #0a0a23;
-  --invc: #000000;
+  --invc: #0a0a23;
 }
 :root.dark {
   --bg: #15171e;
@@ -33,7 +41,7 @@
   --bcb: #f4f4f4;
   --fcb: #15171e;
   --bnb: #383a5c;
-  --invc: #000000;
+  --invc: #15171e;
 }
 
 html {
@@ -116,7 +124,7 @@ a {
 }
 
 section[id] {
-  scroll-margin-top: var(--nav-height);
+  scroll-margin-top: 15px;
 }
 
 .content-block {
@@ -350,7 +358,7 @@ td, th {
 
 .progress-date {
     font-size: 0.9rem;
-    color: #555;
+    color: #aaa;
 }
 
 /* Mobile: stack title and date */
@@ -358,5 +366,8 @@ td, th {
     .progress-header {
         flex-direction: column;
         align-items: flex-start;
+    }
+    .progress-header > h4 {
+    margin-bottom: 0.1rem;
     }
 }
