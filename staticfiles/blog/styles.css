@@ -37,7 +37,7 @@ invc = inverted color
 }
 :root.dark {
   --bg: #15171e;
-  --fg: #ffffff;
+  --fg: #f1f1f1;
   --bcb: #f4f4f4;
   --fcb: #15171e;
   --bnb: #383a5c;
