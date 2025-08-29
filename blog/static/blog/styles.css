@@ -181,6 +181,10 @@ section[id] {
     margin-top: 4px;
 }
 
+li {
+  margin-bottom: 5px;
+}
+
 /* Mobile adjustments */
 @media screen and (max-width: 600px) {
     .p_card {
@@ -355,10 +359,20 @@ td, th {
     align-items: baseline;
     gap: 0.5rem;
 }
+.progress-header > h4 {
+  margin-bottom: 0.1rem;
+  }
 
 .progress-date {
     font-size: 0.9rem;
     color: #aaa;
+}
+
+.progress-entry img {
+  display: block;
+  width: 100%;        /* makes the image follow the width of .content-block */
+  height: auto;       /* keeps aspect ratio */
+  max-width: 100%;    /* prevents overflow */
 }
 
 /* Mobile: stack title and date */
@@ -366,9 +380,6 @@ td, th {
     .progress-header {
         flex-direction: column;
         align-items: flex-start;
-    }
-    .progress-header > h4 {
-    margin-bottom: 0.1rem;
     }
 }
 
