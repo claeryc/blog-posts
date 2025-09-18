@@ -6,6 +6,7 @@
   --fcb: #f4f4f4;
   --bnb: #0a0a23;
   --invc: #0a0a23;
+  --boxs: rgb(0 0 255 / 0.2);
 }
 /* 
 bg = background color
@@ -24,6 +25,7 @@ invc = inverted color
     --fcb: #f4f4f4;
     --bnb: #0a0a23;
     --invc: #0a0a23;
+    --boxs: rgb(0 0 255 / 0.2);
   }
 }
 
@@ -34,6 +36,7 @@ invc = inverted color
   --fcb: #f4f4f4;
   --bnb: #0a0a23;
   --invc: #0a0a23;
+  --boxs: rgb(0 0 255 / 0.2);
 }
 :root.dark {
   --bg: #15171e;
@@ -42,6 +45,7 @@ invc = inverted color
   --fcb: #15171e;
   --bnb: #383a5c;
   --invc: #15171e;
+  --boxs: rgba(233, 214, 154, 0.67)
 }
 
 html {
@@ -417,6 +421,10 @@ summary {
   margin-top: 0;
 }
 
+.vocab-box p {
+  color: var(--bnb)
+}
+
 .vocab-table {
   width: 100%;
   border-collapse: collapse;
@@ -427,6 +435,7 @@ summary {
 .vocab-table td {
   padding: 8px;
   border: 1px solid #90CAF9;
+  color: var(--bnb)
 }
 
 .vocab-table thead tr {
@@ -434,5 +443,5 @@ summary {
 }
 
 .highlight-box {
-box-shadow: 6px 6px 2px 1px rgb(0 0 255 / 0.2);
+box-shadow: var(--boxs);
 }
