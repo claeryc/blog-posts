@@ -5,18 +5,18 @@ date: 2025-09-18
 restricted: false
 ---
 <div style="margin: 30px 0; ">
-    <h4>
+<h4>
+口语作业 P21
+</h4>
 我喜欢的中国食物：从德国面包到麻辣烫的美食之旅
 
 一段关于口味适应和文化发现的美味旅程
-
-口语作业 P21
-</h4>
 </div>
 <div style="background-color: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #4CAF50;">
   <h3 style="color: #2E7D32; margin-top: 0; margin-bottom: 0">自己喜欢的食物</h3>
 </div>
 <div style="margin-top: 30px;">
+</div>
 以前在德国，我每天早餐常常吃各种面包。但是来到中国以后，我发现包子和饺子特别方便，所以早饭经常选择这些食物。这样的早餐很有饱腹感，也让我一天开始时充满力量。
 不过，有时候油比较多，长期下去可能对健康有影响。
 
@@ -25,7 +25,6 @@ restricted: false
 当然，这种饮食习惯也有一些问题。比如，有时候太辣会影响胃口，太油腻也容易让人感到疲劳。长期吃下去，如果营养不够全面，可能会影响身体健康。
 
 等我以后回国了，一定会非常舍不得麻辣烫。
-</div>
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0;">
   <div style="background-color: #E8F5E9; padding: 15px; border-radius: 8px;">
     <h4 style="color: #388E3C; margin-top: 0;">👍 好处</h4>
