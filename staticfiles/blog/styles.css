@@ -443,5 +443,5 @@ summary {
 }
 
 .highlight-box {
-box-shadow: var(--boxs);
+box-shadow: 6px 6px 2px 1px var(--boxs);
 }
