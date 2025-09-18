@@ -432,3 +432,7 @@ summary {
 .vocab-table thead tr {
   background-color: #BBDEFB;
 }
+
+.highlight-box {
+box-shadow: 6px 6px 2px 1px rgb(0 0 255 / 0.2);
+}

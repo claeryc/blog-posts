@@ -12,7 +12,7 @@ restricted: false
 
 一段关于口味适应和文化发现的美味旅程
 </div>
-<div style="background-color: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #4CAF50;">
+<div class="highlight-box" style="background-color: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #4CAF50;">
   <h3 style="color: #2E7D32; margin-top: 0; margin-bottom: 0">自己喜欢的食物</h3>
 </div>
 <div style="margin-top: 30px;">
@@ -26,7 +26,7 @@ restricted: false
 
 等我以后回国了，一定会非常舍不得麻辣烫。
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0;">
-  <div style="background-color: #E8F5E9; padding: 15px; border-radius: 8px;">
+  <div class="highlight-box" style="background-color: #E8F5E9; padding: 15px; border-radius: 8px;">
     <h4 style="color: #388E3C; margin-top: 0;">👍 好处</h4>
     <ul style="color: #555;">
       <li>充满力量</li>
@@ -34,7 +34,8 @@ restricted: false
       <li>灵活方便</li>
       <li>对健康有好处</li>
     </ul>
-  </div><div style="background-color: #FFEBEE; padding: 15px; border-radius: 8px;">
+  </div>
+  <div class="highlight-box" style="background-color: #FFEBEE; padding: 15px; border-radius: 8px;">
     <h4 style="color: #D32F2F; margin-top: 0;">👎 问题</h4>
     <ul style="color: #555;">
       <li>太油腻</li>
