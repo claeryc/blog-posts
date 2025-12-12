@@ -5,35 +5,21 @@
 {% endblock %}
 
 {% block content %}
-<!-- Hero Section -->
-<section class="hero">
+<!-- Hero Section with Full Background Image -->
+<section class="hero hero-background">
+    <div class="hero-overlay"></div>
     <header>
       <h1>Welcome to My Blog</h1>
+      <p>Insights, stories, and ideas.</p>
     </header>
-  
-    <div class="hero-content">
-      <div class="hero-image">
-        <img src="../../static/images/ghostChar.png">
-      </div>
-      <div class="hero-text">
-        <p>Insights, stories, and ideas.</p>
-      </div>
-    </div>
   </section>
-  
-  <!-- Second big centered image -->
-  <div class="project-block">
-    <div class="hero-image2">
-      <img src="../../static/images/hbanner.png">
-    </div>
-  </div>
 
     <!-- Map & Tooltips -->
 
     {% include "blog/map.html" %}
 
     <!-- Search -->
-    <div style="display: flex; justify-content: center; margin-bottom: 2em;">
+    <div style="display: flex; justify-content: center; margin-bottom: 2em; margin-top: 70px;">
         <form action="{% url 'search' %}" method="get">
             <label for="search">Search: </label>
             <input id="search" class="search" type="text" name="q" placeholder="Enter title name">

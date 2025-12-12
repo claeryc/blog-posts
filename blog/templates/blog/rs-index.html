@@ -1,0 +1,66 @@
+{% extends "blog/rs-layout.html" %}
+
+{% block title %}
+    RuneScape Adventures Blog
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <header>
+      <h1>⚔️ RuneScape Adventures ⚔️</h1>
+    </header>
+
+    <div class="hero-content">
+      <div class="hero-image">
+        <img src="../../static/images/ghostChar.png" alt="Character">
+      </div>
+      <div class="hero-text">
+        <p>📜 Chronicles of Code, Magic, and Wisdom 📜</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner Image -->
+  <div class="project-block">
+    <div class="hero-image2">
+      <img src="../../static/images/osrs.png" alt="Banner">
+    </div>
+  </div>
+
+  <!-- Map & Tooltips -->
+  {% include "blog/map.html" %}
+
+  <!-- Search Section -->
+  <div class="search-section">
+    <form action="{% url 'search' %}" method="get" style="display: flex; gap: 10px; width: 100%; justify-content: center; flex-wrap: wrap;">
+      <label for="search" style="display: flex; align-items: center; color: var(--rs-gold); font-weight: bold;">🔍 Search Quest:</label>
+      <input id="search" class="search" type="text" name="q" placeholder="Enter title name">
+      <a href="{% url 'blogview' %}" class="all">📋 All Posts</a>
+    </form>
+  </div>
+
+  <!-- Blog Listing -->
+  <div id="posts" class="p_card-container">
+    {% for post in posts %}
+    <a class="p_card" href="{% url 'post' slug=post.slug %}">
+      <img src="{{ post.thumbnail }}" alt="{{ post.title }}">
+      <div>
+        <div class="p_card-title">{{ post.title }}</div>
+        <div class="p_card-date">📅 {{ post.date }}</div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  <!-- Pagination -->
+  <div style="text-align:center; margin-top: 20px; padding: 1rem;">
+    {% if prev_page %}
+      <a href="?page={{ prev_page }}#posts" class="all">← Previous</a>
+    {% endif %}
+    {% if next_page %}
+      <a href="?page={{ next_page }}#posts" class="all">Next →</a>
+    {% endif %}
+  </div>
+
+{% endblock %}

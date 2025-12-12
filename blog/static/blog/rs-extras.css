@@ -1,0 +1,426 @@
+/* RuneScape Theme - Extra Features & Animations */
+
+/* ============================================
+   GLOWING TEXT EFFECTS
+   ============================================ */
+
+.glow-gold {
+  color: var(--rs-gold);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.glow-blue {
+  color: var(--rs-rune-blue);
+  text-shadow: 0 0 10px rgba(0, 160, 255, 0.5);
+}
+
+.glow-red {
+  color: var(--rs-rune-red);
+  text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+}
+
+.glow-green {
+  color: var(--rs-rune-green);
+  text-shadow: 0 0 10px rgba(0, 208, 0, 0.5);
+}
+
+/* ============================================
+   ANIMATED ELEMENTS
+   ============================================ */
+
+@keyframes runeGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+  }
+}
+
+.animate-glow {
+  animation: runeGlow 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.shimmer-effect {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.3) 50%,
+    transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ============================================
+   BADGES & RIBBONS
+   ============================================ */
+
+.rune-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 2px solid var(--rs-gold);
+  background: linear-gradient(135deg, var(--rs-light-bg), var(--rs-dark-bg));
+  color: var(--rs-gold);
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0px;
+  box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+.rune-badge.blue {
+  border-color: var(--rs-rune-blue);
+  color: var(--rs-rune-blue);
+  box-shadow: inset 0 0 10px rgba(0, 160, 255, 0.2);
+}
+
+.rune-badge.red {
+  border-color: var(--rs-rune-red);
+  color: var(--rs-rune-red);
+  box-shadow: inset 0 0 10px rgba(255, 68, 68, 0.2);
+}
+
+.rune-badge.green {
+  border-color: var(--rs-rune-green);
+  color: var(--rs-rune-green);
+  box-shadow: inset 0 0 10px rgba(0, 208, 0, 0.2);
+}
+
+/* ============================================
+   ORNAMENTAL DIVIDERS
+   ============================================ */
+
+.rune-divider {
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--rs-gold) 25%,
+    var(--rs-gold) 75%,
+    transparent 100%);
+  margin: 2rem 0;
+  position: relative;
+}
+
+.rune-divider::before,
+.rune-divider::after {
+  content: '⚔️';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--rs-gold);
+  font-size: 1.2rem;
+}
+
+.rune-divider::before {
+  left: 0;
+}
+
+.rune-divider::after {
+  right: 0;
+}
+
+/* ============================================
+   QUEST MARKERS & INDICATORS
+   ============================================ */
+
+.quest-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--rs-light-bg);
+  border-left: 4px solid var(--rs-gold);
+  color: var(--rs-text);
+  font-weight: bold;
+}
+
+.quest-marker::before {
+  content: '🗺️';
+  font-size: 1.2rem;
+}
+
+.quest-complete {
+  border-left-color: var(--rs-rune-green);
+}
+
+.quest-complete::before {
+  content: '✓';
+  color: var(--rs-rune-green);
+}
+
+.quest-active {
+  animation: runeGlow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   MEDIEVAL PANELS
+   ============================================ */
+
+.medieval-panel {
+  background: linear-gradient(135deg, var(--rs-light-bg), var(--rs-dark-bg));
+  border: 3px solid var(--rs-gold);
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: inset 0 1px 0 rgba(212, 175, 55, 0.3), 0 4px 15px var(--rs-shadow);
+}
+
+.medieval-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.05) 50%,
+    transparent 100%);
+  pointer-events: none;
+}
+
+.medieval-panel h2 {
+  color: var(--rs-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 0;
+  text-shadow: 1px 1px 2px var(--rs-shadow);
+}
+
+/* ============================================
+   STAT DISPLAY
+   ============================================ */
+
+.stat-box {
+  display: inline-block;
+  background: var(--rs-light-bg);
+  border: 2px solid var(--rs-gold);
+  padding: 12px 16px;
+  text-align: center;
+  min-width: 80px;
+  margin: 4px;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--rs-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  color: var(--rs-gold);
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+/* ============================================
+   SKILL PROGRESS BARS
+   ============================================ */
+
+.skill-bar {
+  background: var(--rs-dark-bg);
+  border: 2px solid var(--rs-gold);
+  height: 20px;
+  border-radius: 0px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.skill-bar-fill {
+  background: linear-gradient(90deg, var(--rs-gold), #ffd700);
+  height: 100%;
+  transition: width 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #000;
+}
+
+.skill-bar-fill.blue {
+  background: linear-gradient(90deg, var(--rs-rune-blue), #00d0ff);
+}
+
+.skill-bar-fill.red {
+  background: linear-gradient(90deg, var(--rs-rune-red), #ff7777);
+}
+
+.skill-bar-fill.green {
+  background: linear-gradient(90deg, var(--rs-rune-green), #00ff00);
+}
+
+/* ============================================
+   TREASURE CHEST STYLE BOXES
+   ============================================ */
+
+.treasure-box {
+  background: linear-gradient(135deg, #3d3d2a, #2d2d1a);
+  border: 3px solid var(--rs-gold);
+  padding: 20px;
+  position: relative;
+  box-shadow: inset 0 1px 0 rgba(212, 175, 55, 0.3),
+              0 8px 20px var(--rs-shadow),
+              0 0 30px rgba(212, 175, 55, 0.1);
+}
+
+.treasure-box::before {
+  content: '💎';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.8rem;
+  background: linear-gradient(135deg, var(--rs-light-bg), var(--rs-dark-bg));
+  padding: 0 10px;
+}
+
+.treasure-box h3 {
+  color: var(--rs-gold);
+  text-transform: uppercase;
+  margin-top: 0;
+  text-shadow: 1px 1px 2px var(--rs-shadow);
+}
+
+/* ============================================
+   MANA/HEALTH BARS (for fun decorative use)
+   ============================================ */
+
+.health-bar,
+.mana-bar {
+  display: flex;
+  gap: 4px;
+  margin: 8px 0;
+}
+
+.health-bar {
+  color: var(--rs-rune-red);
+}
+
+.mana-bar {
+  color: var(--rs-rune-blue);
+}
+
+.health-bar .segment,
+.mana-bar .segment {
+  flex: 1;
+  height: 12px;
+  border: 1px solid var(--rs-border);
+  background: var(--rs-dark-bg);
+}
+
+.health-bar .segment.filled {
+  background: linear-gradient(135deg, var(--rs-rune-red), #ff7777);
+}
+
+.mana-bar .segment.filled {
+  background: linear-gradient(135deg, var(--rs-rune-blue), #00d0ff);
+}
+
+/* ============================================
+   INTERACTIVE HOVER EFFECTS
+   ============================================ */
+
+.interactive-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+  border-color: var(--rs-rune-blue);
+}
+
+/* ============================================
+   CATEGORY TAGS
+   ============================================ */
+
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  margin: 2px;
+  background: var(--rs-light-bg);
+  border: 1px solid var(--rs-gold);
+  color: var(--rs-gold);
+  font-size: 0.8rem;
+  border-radius: 0px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(0, 160, 255, 0.1));
+  border-color: var(--rs-rune-blue);
+  color: var(--rs-rune-blue);
+}
+
+/* ============================================
+   ORNAMENTAL CORNERS
+   ============================================ */
+
+.ornate-corner {
+  position: relative;
+}
+
+.ornate-corner::before,
+.ornate-corner::after {
+  content: '◆';
+  position: absolute;
+  color: var(--rs-gold);
+  font-size: 1rem;
+}
+
+.ornate-corner::before {
+  top: 10px;
+  left: 10px;
+}
+
+.ornate-corner::after {
+  bottom: 10px;
+  right: 10px;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 600px) {
+  .stat-box {
+    min-width: 60px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .medieval-panel {
+    padding: 1rem;
+    border-width: 2px;
+  }
+
+  .treasure-box {
+    padding: 15px;
+  }
+}
