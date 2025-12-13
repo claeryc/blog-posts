@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block title %}
-    Home
+    Claeryc
 {% endblock %}
 
 {% block content %}
@@ -26,9 +26,15 @@
     <!-- Search -->
     <div style="display: flex; justify-content: center; margin-bottom: 2em; margin-top: 70px;">
         <form action="{% url 'search' %}" method="get">
-            <label for="search">Search: </label>
+            <label for="search"> </label>
             <input id="search" class="search" type="text" name="q" placeholder="Enter title name">
             <a href="{% url 'blogview' %}" class="all">All posts</a>
+                {% if prev_page %}
+                    <a href="?page={{ prev_page }}#posts" class="all">Previous</a>
+                {% endif %}
+                {% if next_page %}
+                    <a href="?page={{ next_page }}#posts" class="all">Next</a>
+                {% endif %}
         </form>
     </div>
 
@@ -47,17 +53,18 @@
                 {% endfor %}
             </div>
 
-            <div style="text-align:center; margin-top: 20px;">
+            <!-- <div style="text-align:center; margin-top: 20px;">
                 {% if prev_page %}
                     <a href="?page={{ prev_page }}#posts">Previous</a>
                 {% endif %}
                 {% if next_page %}
                     <a href="?page={{ next_page }}#posts">Next</a>
                 {% endif %}
-            </div>
+            </div> -->
         </div>
         <div class="post-listing-aside">
-            <img src="{% static 'images/Holy_book_equipped.png' %}" alt="Holy Book">
+            <!-- <img src="{% static 'images/Holy_book_equipped.png' %}" alt="Holy Book"> -->
+             <img src="{% static 'images/Bulldog.webp' %}" alt="Holy Book">
         </div>
     </div>
 {% endblock %}
