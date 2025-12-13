@@ -53,7 +53,7 @@ def index(request):
     posts.sort(key=lambda p: p['date_obj'], reverse=True)
 
     # Pagination
-    per_page = 2
+    per_page = 3
     page_str = request.GET.get('page', '1')
     try:
         page = int(page_str)

@@ -1,4 +1,9 @@
 {% extends "blog/layout.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/post_listing_layout.css' %}">
+{% endblock %}
 
 {% block title %}
     Home
@@ -28,5 +33,31 @@
     </div>
 
     <!-- Blog Listing -->
-    {% include "blog/blog_list.html" %}
+    <div class="post-listing-container">
+        <div class="post-listing-main">
+            <div id="posts" class="p_card-container">
+                {% for post in posts %}
+                <a class="p_card" href="{% url 'post' slug=post.slug %}">
+                    <img src="{{ post.thumbnail }}" alt="{{ post.title }}">
+                    <div>
+                        <div class="p_card-title">{{ post.title }}</div>
+                        <div class="p_card-date">{{ post.date }}</div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+
+            <div style="text-align:center; margin-top: 20px;">
+                {% if prev_page %}
+                    <a href="?page={{ prev_page }}#posts">Previous</a>
+                {% endif %}
+                {% if next_page %}
+                    <a href="?page={{ next_page }}#posts">Next</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="post-listing-aside">
+            <img src="{% static 'images/Holy_book_equipped.png' %}" alt="Holy Book">
+        </div>
+    </div>
 {% endblock %}

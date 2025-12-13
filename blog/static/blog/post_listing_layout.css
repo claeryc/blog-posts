@@ -1,0 +1,33 @@
+.post-listing-container {
+    display: flex;
+    gap: 20px;
+    max-width: 60%;
+    align-content: center;
+    margin: 0px auto;
+}
+
+.post-listing-main {
+    flex: 3;
+}
+
+.post-listing-aside {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.post-listing-aside img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 350px;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+    .post-listing-container {
+        flex-direction: column;
+        max-width: 90%;
+    }
+}
