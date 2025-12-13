@@ -285,7 +285,6 @@
       top: -40px;
     }
     .colour-block::after {
-    bottom: -100px;
     height: 50px;
   }
   }

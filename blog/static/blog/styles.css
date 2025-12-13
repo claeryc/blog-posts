@@ -258,7 +258,7 @@ li {
         max-width: 300px;
     }
     .hero-background {
-    background-size: contain;
+    background-size: cover;
     background-attachment: initial;
   }
 }
