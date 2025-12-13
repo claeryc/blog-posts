@@ -79,7 +79,7 @@ main.mcontent {
   .hero {
     text-align: center;
     position: relative;
-    min-height: 70vh;
+    min-height: 66vh;
     display: flex;
     align-items: center;
     justify-content: center;
