@@ -217,7 +217,8 @@ section[id] {
 .p_card img {
     width: 30%;
     max-width: 150px;
-    height: auto;
+    /* height: auto; */
+    height: fit-content;
     max-height: 10vh;
     object-fit: cover;
     border-radius: 5px;
@@ -248,8 +249,8 @@ li {
     }
 
     .p_card img {
-        width: 40%;
-        max-width: 100%;
+        /* width: 40%; */
+        min-width: 40%;
         margin-right: 0;
         /* margin-bottom: 10px; */
         max-height: 10vh;
