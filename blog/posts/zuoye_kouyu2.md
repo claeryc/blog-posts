@@ -6,12 +6,21 @@ restricted: false
 ---
 <div style="margin: 30px 0; ">
 <h4>
-口语作业 P21
+Art Blog
 </h4>
 我喜欢的中国食物：从德国面包到麻辣烫的美食之旅
 
 一段关于口味适应和文化发现的美味旅程
 </div>
+<button popovertarget="art_ex_1">
+Show Example
+</button>
+<div popover id="art_ex_1">
+<h2>This is an example</h2>
+<p>my first drawing attempt...</p>
+<button class="primary" popovertarget="art_ex_1" popovertargetaction="hide">
+</div>
+
 <div class="highlight-box" style="background-color: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #4CAF50;">
   <h3 style="color: #2E7D32; margin-top: 0; margin-bottom: 0">自己喜欢的食物</h3>
 </div>
