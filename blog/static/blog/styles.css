@@ -108,6 +108,9 @@ main.mcontent {
     position: relative;
     z-index: 2;
     color: #fff;
+    /* background: linear-gradient(to right, gold, white);
+    background-clip: text;
+    color: transparent; */
   }
 
   .hero h1 {
@@ -205,6 +208,10 @@ section[id] {
     box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
     text-decoration: none;
     color: var(--invc);
+    transition: box-shadow 500ms ease-in-out;
+}
+.p_card:hover {
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1) inset, -5px -5px 5px white inset;
 }
 
 .p_card img {
@@ -218,7 +225,7 @@ section[id] {
 }
 
 .p_card-title {
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: bold;
 }
 

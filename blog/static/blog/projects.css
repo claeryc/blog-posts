@@ -285,8 +285,8 @@
       top: -40px;
     }
     .colour-block::after {
-    height: 50px;
-    bottom: -50px;
+    height: 40px;
+    bottom: -40px;
   }
   }
 

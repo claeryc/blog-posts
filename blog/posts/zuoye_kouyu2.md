@@ -1,7 +1,7 @@
 ---
-title: 中上2班 - 口语课作业2
-thumbnail: /static/images/blog_thailand-banner.jpg
-date: 2025-09-19
+title: Drawing Challenge (first try in over a decade...)
+thumbnail: /static/images/bp_drawing_tbn.png
+date: 2025-12-18
 restricted: false
 ---
 <div style="margin: 30px 0; ">
