@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Italy spring 2026 — Oriolo, Orvieto, Nani, and a quick stop in Rome. Camping, chess on a cliff wall, a jazz bar, and a friend's first metal show.">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://claeryc.com/posts/italy-2026.html">
+    <meta property="og:title" content="Italy 2026 — Claeryc">
+    <meta property="og:description" content="Oriolo, Orvieto, Nani, Rome — camping, chess on a cliff, and a friend's first metal show.">
+    <meta property="og:image" content="https://claeryc.com/static/images/italy/orvieto_city.JPG">
+    <title>Italy 2026 — Claeryc</title>
+    <link href="../static/blog/styles.css" rel="stylesheet">
+    <link href="../static/blog/navbar.css" rel="stylesheet">
+    <link href="../static/blog/footer.css" rel="stylesheet">
+    <style>
+
+        /* ─────────────────────────────────────────
+           Map + panel layout
+        ───────────────────────────────────────── */
+        .italy-layout {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            margin: 1.5rem 0 3rem;
+        }
+        @media (max-width: 660px) {
+            .italy-layout { flex-direction: column; }
+        }
+
+        .map-wrapper {
+            flex-shrink: 0;
+            width: 190px;
+            position: sticky;
+            top: 82px;
+        }
+        @media (max-width: 660px) {
+            .map-wrapper {
+                width: 100%;
+                max-width: 200px;
+                margin: 0 auto;
+                position: static;
+            }
+        }
+
+        .italy-svg { width: 100%; height: auto; overflow: visible; }
+
+        .italy-land {
+            fill: var(--fg);
+            fill-opacity: 0.07;
+            stroke: var(--fg);
+            stroke-width: 1.2;
+            stroke-opacity: 0.22;
+        }
+        .route-line {
+            fill: none;
+            stroke: #facc15;
+            stroke-width: 1.5;
+            stroke-dasharray: 4 3;
+            stroke-opacity: 0.5;
+        }
+
+        .city-dot { cursor: pointer; }
+        .city-dot .dot-bg {
+            fill: var(--fg);
+            fill-opacity: 0.3;
+            transition: fill 0.2s, fill-opacity 0.2s;
+        }
+        .city-dot:hover .dot-bg,
+        .city-dot.active .dot-bg {
+            fill: #facc15;
+            fill-opacity: 1;
+            filter: drop-shadow(0 0 5px rgba(250,204,21,0.6));
+        }
+        .city-dot .dot-label {
+            font-size: 8px;
+            fill: var(--fg);
+            fill-opacity: 0;
+            pointer-events: none;
+            transition: fill-opacity 0.2s;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .city-dot:hover .dot-label,
+        .city-dot.active .dot-label { fill-opacity: 0.65; }
+
+        .map-hint {
+            text-align: center;
+            font-size: 0.72rem;
+            color: var(--fg);
+            opacity: 0.35;
+            margin: 5px 0 0;
+            font-style: italic;
+        }
+
+        /* ─────────────────────────────────────────
+           Photo panel
+        ───────────────────────────────────────── */
+        .photo-panel { flex: 1; min-width: 0; }
+
+        .panel-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 170px;
+            border: 1.5px dashed rgba(128,128,128,0.3);
+            border-radius: 12px;
+            color: rgba(128,128,128,0.6);
+            font-style: italic;
+            font-size: 0.88rem;
+        }
+
+        .loc-panel { display: none; }
+        .loc-panel.visible { display: block; }
+
+        .loc-header { margin-bottom: 0.9rem; }
+        .loc-header h3 {
+            margin: 0 0 5px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--fg);
+        }
+        .loc-header p {
+            margin: 0;
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: var(--fg);
+            opacity: 0.65;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 7px;
+            margin-top: 0.9rem;
+        }
+
+        .photo-item {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            border-radius: 7px;
+            overflow: hidden;
+            background: rgba(128,128,128,0.1);
+            cursor: zoom-in;
+        }
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.28s ease;
+        }
+        .photo-item:hover img { transform: scale(1.04); }
+
+        .photo-item.missing {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: default;
+        }
+        .photo-item.missing::after {
+            content: '📷';
+            font-size: 1.6rem;
+            opacity: 0.22;
+        }
+
+        /* ─────────────────────────────────────────
+           Lightbox
+        ───────────────────────────────────────── */
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(8,8,10,0.93);
+            z-index: 9999;
+            backdrop-filter: blur(5px);
+        }
+        #lb-img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 92vw;
+            max-height: 88vh;
+            border-radius: 9px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.7);
+        }
+        #lb-caption {
+            position: absolute;
+            bottom: 22px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.55);
+            font-size: 0.82rem;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+        #lb-close {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.6);
+            font-size: 1.7rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: color 0.15s;
+        }
+        #lb-close:hover { color: #fff; }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="../index.html">
+    <div class="logo">
+      <h3 class="logo-title"><span class="name-wrapper"><span id="scrambleName">Eric's Blog</span></span></h3>
+    </div>
+  </a>
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="hamburger">
+    <span></span><span></span><span></span>
+  </label>
+  <div class="menu">
+    <a href="../index.html">Home</a>
+    <a href="../blog.html">Blogs</a>
+    <a href="../recs.html">Recs</a>
+    <a href="../now.html">Now</a>
+    <button id="theme-toggle">Theme</button>
+  </div>
+</nav>
+
+<div class="page-wrapper">
+    <main class="mcontent">
+        <div class="content-block">
+
+            <h1>Italy — Spring 2026</h1>
+            <p style="color:gray; font-size:0.9rem; margin-top:-0.5rem;">April 2026</p>
+
+            <p>
+                Rome was obligatory, but Oriolo, Orvieto, and Nani were the actual trip.
+                Small towns where we were the only tourists, a campfire in the middle of a flower field,
+                chess on the edge of a cliff wall, and taking my friend to her first metal show.
+                Italy turned out to be a lot more interesting once we stopped looking at the tourist map.
+            </p>
+
+            <h2 style="margin-top:2.2rem;">The route</h2>
+            <p style="font-size:0.88rem; opacity:0.6; margin-top:-0.4rem;">Tap a marker to see photos from that stop.</p>
+
+            <div class="italy-layout">
+
+                <!-- ── SVG map ── -->
+                <div class="map-wrapper">
+                    <svg class="italy-svg" viewBox="0 0 280 370" xmlns="http://www.w3.org/2000/svg">
+
+                        <!-- Italy mainland outline (clockwise from NW coast) -->
+                        <path class="italy-land" d="
+                            M 10,126
+                            C 12,110 16,88 22,72
+                            L 40,48 88,33 128,28
+                            L 160,42 164,58
+                            C 156,63 146,66 143,70
+                            L 137,108 151,130
+                            C 157,148 164,160 168,170
+                            L 224,222 244,240 260,265
+                            L 256,278
+                            C 244,264 232,257 230,258
+                            C 222,263 216,270 212,278
+                            C 206,295 198,320 192,344
+                            C 196,328 202,308 204,290
+                            C 207,272 203,258 194,250
+                            C 184,240 168,232 158,224
+                            C 146,214 132,204 118,196
+                            C 108,184 96,158 82,132
+                            L 70,108 50,97
+                            C 38,101 25,110 10,126
+                            Z
+                        "/>
+
+                        <!--
+                            Route: Orvieto → Nani → Oriolo → Rome
+                            All in central Lazio/Umbria, clustered around Rome
+                        -->
+                        <polyline class="route-line" points="117,162 124,168 120,182 129,193"/>
+
+                        <!-- Orvieto — Umbria hill town, NW of Rome -->
+                        <g class="city-dot" data-id="orvieto" tabindex="0" role="button" aria-label="Orvieto">
+                            <circle class="dot-bg" cx="117" cy="162" r="6"/>
+                            <text class="dot-label" x="104" y="160" text-anchor="end">Orvieto</text>
+                        </g>
+
+                        <!-- Nani — small town, between Orvieto and Rome -->
+                        <g class="city-dot" data-id="nani" tabindex="0" role="button" aria-label="Nani">
+                            <circle class="dot-bg" cx="124" cy="168" r="6"/>
+                            <text class="dot-label" x="136" y="166" text-anchor="start">Nani</text>
+                        </g>
+
+                        <!-- Oriolo — NW of Rome, countryside camping -->
+                        <g class="city-dot" data-id="oriolo" tabindex="0" role="button" aria-label="Oriolo">
+                            <circle class="dot-bg" cx="120" cy="182" r="6"/>
+                            <text class="dot-label" x="108" y="180" text-anchor="end">Oriolo</text>
+                        </g>
+
+                        <!-- Rome -->
+                        <g class="city-dot" data-id="rome" tabindex="0" role="button" aria-label="Rome">
+                            <circle class="dot-bg" cx="129" cy="193" r="6"/>
+                            <text class="dot-label" x="141" y="191" text-anchor="start">Roma</text>
+                        </g>
+
+                    </svg>
+                    <p class="map-hint">tap a marker</p>
+                </div>
+
+                <!-- ── Photo panel ── -->
+                <div class="photo-panel">
+
+                    <div class="panel-placeholder" id="panel-placeholder">← select a stop</div>
+
+                    <!-- Orvieto -->
+                    <div class="loc-panel" id="loc-orvieto">
+                        <div class="loc-header">
+                            <h3>Orvieto</h3>
+                            <p>A hill town built on top of a volcanic cliff in Umbria. We played chess
+                            on the wall ledge with a 100-metre drop behind the board. The view made
+                            it hard to focus on the game.</p>
+                        </div>
+                        <div class="photo-grid">
+                            <div class="photo-item">
+                                <img src="../static/images/italy/orvieto_city.JPG" alt="Orvieto hillside town" loading="eager"
+                                     onerror="this.closest('.photo-item').classList.add('missing'); this.remove()">
+                            </div>
+                            <div class="photo-item">
+                                <img src="../static/images/italy/orvieto_view.JPG" alt="Valley view from Orvieto walls" loading="eager"
+                                     onerror="this.closest('.photo-item').classList.add('missing'); this.remove()">
+                            </div>
+                            <div class="photo-item">
+                                <!-- Chess photo has EXIF rotation — corrected via CSS -->
+                                <img src="../static/images/italy/orvieto_chess.JPG" alt="Chess on the cliff wall" loading="eager"
+                                     onerror="this.closest('.photo-item').classList.add('missing'); this.remove()">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nani -->
+                    <div class="loc-panel" id="loc-nani">
+                        <div class="loc-header">
+                            <h3>Nani</h3>
+                            <p>Ancient ruins, terraced gardens, and green hills in every direction.
+                            The kind of place where you end up staying longer than planned
+                            because there's always one more corner to turn.</p>
+                        </div>
+                        <div class="photo-grid">
+                            <div class="photo-item">
+                                <!-- EXIF rotation corrected -->
+                                <img src="../static/images/italy/nani_reeko.JPG" alt="Ancient ruins at Nani" loading="eager"
+                                     onerror="this.closest('.photo-item').classList.add('missing'); this.remove()">
+                            </div>
+                            <div class="photo-item">
+                                <img src="../static/images/italy/nani_yuki.JPG" alt="Terraced garden with hills" loading="eager"
+                                     onerror="this.closest('.photo-item').classList.add('missing'); this.remove()">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Oriolo -->
+                    <div class="loc-panel" id="loc-oriolo">
+                        <div class="loc-header">
+                            <h3>Oriolo</h3>
+                            <p>First proper camping trip — tent in a flower field, fire going before dark.
+                            Paolo lives here and walks his cat on a lead down the country lane every morning.
+                            That felt like a good sign.</p>
+                        </div>
+                        <div class="photo-grid">
+                            <div class="photo-item">
+                                <img src="../static/images/italy/oriolo_tent.JPG" alt="Tent and campfire in a flower field" loading="eager"
+                                     onerror="this.closest('.photo-item').classList.add('missing'); this.remove()">
+                            </div>
+                            <div class="photo-item">
+                                <img src="../static/images/italy/oriolo_paolo.JPG" alt="Paolo walking his cat down the lane" loading="eager"
+                                     onerror="this.closest('.photo-item').classList.add('missing'); this.remove()">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rome -->
+                    <div class="loc-panel" id="loc-rome">
+                        <div class="loc-header">
+                            <h3>Roma</h3>
+                            <p>Obligatory. The Colosseum is as big as you'd expect. The Trevi Fountain
+                            is more crowded than you'd hope. The prosciutto and white wine made up for it.
+                            We left after a day.</p>
+                        </div>
+                        <div class="photo-grid">
+                            <div class="photo-item">
+                                <img src="../static/images/italy/rome_sightseeing.JPG" alt="The Colosseum" loading="eager"
+                                     onerror="this.closest('.photo-item').classList.add('missing'); this.remove()">
+                            </div>
+                            <div class="photo-item">
+                                <img src="../static/images/italy/rome_panini.JPG" alt="Prosciutto and white wine" loading="eager"
+                                     onerror="this.closest('.photo-item').classList.add('missing'); this.remove()">
+                            </div>
+                            <div class="photo-item">
+                                <img src="../static/images/italy/rome_monster.JPG" alt="Monster can at Trevi Fountain" loading="eager"
+                                     onerror="this.closest('.photo-item').classList.add('missing'); this.remove()">
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /photo-panel -->
+            </div><!-- /italy-layout -->
+
+            <br>
+            <a href="../index.html#posts">← Home</a>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <img src="../static/images/lucky_cat.png" alt="Logo" loading="lazy">
+        </div>
+        <div class="footer-content">
+            <p>© 2025 claeryc.com — All Rights Reserved</p>
+            <nav class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy</a>
+            </nav>
+        </div>
+    </footer>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <img id="lb-img" src="" alt="">
+    <div id="lb-caption"></div>
+    <button id="lb-close" aria-label="Close">✕</button>
+</div>
+
+<script>
+    (function () {
+        const t = localStorage.getItem("theme"), r = document.documentElement;
+        if (t === "dark") { r.classList.add("dark"); r.classList.remove("light"); }
+        else if (t === "light") { r.classList.add("light"); r.classList.remove("dark"); }
+    })();
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("theme-toggle");
+        if (!btn) return;
+        btn.addEventListener("click", () => {
+            const r = document.documentElement;
+            const nowDark = r.classList.toggle("dark");
+            r.classList.toggle("light", !nowDark);
+            localStorage.setItem("theme", nowDark ? "dark" : "light");
+        });
+    });
+</script>
+<script>
+    (function () {
+        const navbar = document.querySelector('.navbar');
+        if (!navbar) return;
+        let lastY = window.scrollY, ticking = false;
+        const threshold = 20;
+        function isMenuOpen() { const t = document.getElementById('menu-toggle'); return t ? t.checked : false; }
+        function update() {
+            const y = window.scrollY, delta = y - lastY;
+            if (Math.abs(delta) > threshold) {
+                if (delta > 0 && y > threshold && !isMenuOpen()) navbar.classList.add('hide');
+                else if (delta < 0) navbar.classList.remove('hide');
+                lastY = y;
+            } else { lastY = y; }
+            ticking = false;
+        }
+        window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(update); ticking = true; } }, { passive: true });
+    })();
+</script>
+<script>
+    const original = "Eric's Blog", alternate = "思烨的博客";
+    let showingOriginal = true, interval;
+    function scrambleText(el, text) {
+        const chars = "!@#$%^&*()_+=-{}[];:<>?,.";
+        let i = 0;
+        clearInterval(interval);
+        interval = setInterval(() => {
+            el.textContent = text.split("").map((c, idx) => idx < i ? c : chars[Math.floor(Math.random() * chars.length)]).join("");
+            if (i >= text.length) clearInterval(interval);
+            i += 0.5;
+        }, 50);
+    }
+    setInterval(() => {
+        const el = document.getElementById("scrambleName");
+        showingOriginal = !showingOriginal;
+        scrambleText(el, showingOriginal ? original : alternate);
+    }, 3000);
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const dots        = document.querySelectorAll('.city-dot');
+    const placeholder = document.getElementById('panel-placeholder');
+    const panels      = document.querySelectorAll('.loc-panel');
+    const lightbox    = document.getElementById('lightbox');
+    const lbImg       = document.getElementById('lb-img');
+    const lbCaption   = document.getElementById('lb-caption');
+    const lbClose     = document.getElementById('lb-close');
+
+    // ── Dot → panel ──
+    function activate(id) {
+        dots.forEach(d => d.classList.toggle('active', d.dataset.id === id));
+        placeholder.style.display = 'none';
+        panels.forEach(p => p.classList.toggle('visible', p.id === 'loc-' + id));
+    }
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => activate(dot.dataset.id));
+        dot.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(dot.dataset.id); }
+        });
+    });
+
+    // ── Lightbox ──
+    function openLightbox(src, caption) {
+        lbImg.src = src;
+        lbImg.alt = caption;
+        lbCaption.textContent = caption;
+        lightbox.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = '';
+        lbImg.src = '';
+    }
+
+    document.querySelectorAll('.photo-item img').forEach(img => {
+        img.addEventListener('load', () => {
+            img.addEventListener('click', () => openLightbox(img.src, img.alt));
+        });
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+});
+</script>
+
+</body>
+</html>

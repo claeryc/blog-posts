@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Eric's personal blog — travel, language learning in China, and ideas on AI and culture.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://claeryc.com/">
+    <meta property="og:title" content="Claeryc">
+    <meta property="og:description" content="Eric's personal blog — travel, language learning in China, and ideas on AI and culture.">
+    <meta property="og:image" content="https://claeryc.com/static/images/thailand.jpg">
     <title>Claeryc</title>
     <link href="static/blog/styles.css" rel="stylesheet">
     <link href="static/blog/navbar.css" rel="stylesheet">
@@ -32,7 +38,7 @@
     <a href="index.html">Home</a>
     <a href="blog.html">Blogs</a>
     <a href="recs.html">Recs</a>
-    <a href="#">Contact</a>
+    <a href="now.html">Now</a>
     <button id="theme-toggle">Theme</button>
   </div>
 </nav>
@@ -45,7 +51,7 @@
             <div class="hero-overlay"></div>
             <header>
                 <h1>Welcome to My Blog</h1>
-                <p>Insights, stories, and ideas.</p>
+                <p>Right now I'm <a class="" style="color: var(--bg); font-style: italic;" href="now.html">here</a></p>
             </header>
         </section>
 
@@ -131,8 +137,25 @@
             </svg>
         </div>
 
+        <!-- Personal intro -->
+        <div style="text-align: center; max-width: 560px; margin: 80px auto 0; padding: 0 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 14px; justify-content: center; margin-bottom: 28px;">
+                <span style="flex: 1; height: 1px; background: var(--fg); opacity: 0.15; display: block;"></span>
+                <span style="font-size: 1.1rem; opacity: 0.4; letter-spacing: 0.15em;">✦</span>
+                <span style="flex: 1; height: 1px; background: var(--fg); opacity: 0.15; display: block;"></span>
+            </div>
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.45rem; line-height: 1.55; color: var(--fg); font-style: italic; margin: 0 0 14px;">
+                Gap year in progress.
+            </p>
+            <p style="font-size: 1rem; line-height: 1.75; color: var(--fg); opacity: 0.75; margin: 0;">
+                I'm 思烨 — traveling, learning Mandarin, and picking up side quests along the way.
+                This is where I document it all: the countries, the language experiments, the mini projects,
+                and whatever else I end up doing without a plan.
+            </p>
+        </div>
+
         <!-- Search -->
-        <div style="display: flex; justify-content: center; margin-bottom: 2em; margin-top: 70px;">
+        <div style="display: flex; justify-content: center; margin-bottom: 2em; margin-top: 40px;">
             <form id="search-form" action="blog.html">
                 <label for="search"> </label>
                 <input id="search" class="search" type="text" name="q" placeholder="Enter title name">
@@ -144,6 +167,14 @@
         <div class="post-listing-container">
             <div class="post-listing-main">
                 <div id="posts" class="p_card-container">
+
+                    <a class="p_card" href="posts/italy-2026.html">
+                        <img src="static/images/italy/orvieto_city.JPG" alt="Italy 2026" loading="lazy">
+                        <div>
+                            <div class="p_card-title">Italy — Spring 2026</div>
+                            <div class="p_card-date">2026-04-01</div>
+                        </div>
+                    </a>
 
                     <a class="p_card" href="posts/zuoye_kouyu2.html">
                         <img src="static/images/bp_drawing_tbn.png" alt="Drawing Challenge (first try in over a decade...)" loading="lazy">
@@ -158,14 +189,6 @@
                         <div>
                             <div class="p_card-title">中上2班 - 口语课作业</div>
                             <div class="p_card-date">2025-09-18</div>
-                        </div>
-                    </a>
-
-                    <a class="p_card" href="posts/fourth-post.html">
-                        <img src="static/images/ghostp.jpg" alt="AI is becoming inbred" loading="lazy">
-                        <div>
-                            <div class="p_card-title">AI is becoming inbred</div>
-                            <div class="p_card-date">2025-08-15</div>
                         </div>
                     </a>
 

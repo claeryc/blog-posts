@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="What Eric is up to right now — a running log of life chapters, newest first.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://claeryc.com/now.html">
+    <meta property="og:title" content="Now — Claeryc">
+    <meta property="og:description" content="What Eric is up to right now — a running log of life chapters, newest first.">
+    <meta property="og:image" content="https://claeryc.com/static/images/thailand.jpg">
+    <title>Now — Claeryc</title>
+    <link href="static/blog/styles.css" rel="stylesheet">
+    <link href="static/blog/navbar.css" rel="stylesheet">
+    <link href="static/blog/footer.css" rel="stylesheet">
+    <style>
+        .now-wrapper {
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 15vh 1.5rem 80px;
+        }
+
+        .now-header {
+            margin-bottom: 56px;
+        }
+
+        .now-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin: 0 0 10px;
+            color: var(--fg);
+        }
+
+        .now-header p {
+            font-size: 0.9rem;
+            color: var(--fg);
+            opacity: 0.45;
+            margin: 0;
+            letter-spacing: 0.03em;
+        }
+
+        /* Timeline spine */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 8px;
+            bottom: 0;
+            width: 1.5px;
+            background: var(--fg);
+            opacity: 0.12;
+        }
+
+        .tl-entry {
+            position: relative;
+            margin-bottom: 52px;
+        }
+
+        .tl-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Dot on the spine */
+        .tl-entry::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 8px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--fg);
+            opacity: 0.35;
+        }
+
+        /* Active entry gets a filled dot */
+        .tl-entry.active::before {
+            background: #facc15;
+            opacity: 1;
+            box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.2);
+        }
+
+        .tl-date {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--fg);
+            opacity: 0.4;
+            margin-bottom: 8px;
+        }
+
+        .tl-entry.active .tl-date {
+            color: #c89a00;
+            opacity: 1;
+        }
+
+        :root.dark .tl-entry.active .tl-date {
+            color: #facc15;
+        }
+
+        .tl-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--fg);
+            margin: 0 0 10px;
+            line-height: 1.3;
+        }
+
+        .tl-body {
+            font-size: 0.97rem;
+            line-height: 1.75;
+            color: var(--fg);
+            opacity: 0.75;
+            margin: 0;
+        }
+
+        .tl-body + .tl-body {
+            margin-top: 10px;
+        }
+
+        .now-footer-note {
+            margin-top: 64px;
+            padding-top: 24px;
+            border-top: 1px solid var(--fg);
+            opacity: 0.15;
+            font-size: 0.82rem;
+            color: var(--fg);
+            opacity: 0.35;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="index.html">
+    <div class="logo">
+      <h3 class="logo-title"><span class="name-wrapper"><span id="scrambleName">Eric's Blog</span></span></h3>
+    </div>
+  </a>
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="hamburger">
+    <span></span><span></span><span></span>
+  </label>
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blogs</a>
+    <a href="recs.html">Recs</a>
+    <a href="now.html">Now</a>
+    <button id="theme-toggle">Theme</button>
+  </div>
+</nav>
+
+<div class="page-wrapper">
+    <main class="mcontent">
+        <div class="now-wrapper">
+
+            <div class="now-header">
+                <h1>Now</h1>
+                <p>A running log of what I'm up to — newest first. Inspired by <a href="https://nownownow.com/about" style="color: inherit; opacity: 0.6;">nownownow.com</a>.</p>
+            </div>
+
+            <div class="timeline">
+
+                <!-- ── ENTRY: Italy ── -->
+                <div class="tl-entry active">
+                    <div class="tl-date">April 2026</div>
+                    <h2 class="tl-title">Italy — small towns, jazz, and a metal first</h2>
+                    <p class="tl-body">
+                        Just back from a trip to Italy with a friend. We skipped Rome in favour of smaller towns,
+                        which was the right call — less crowd, more atmosphere. Did our first proper camping trip
+                        tied into some hiking in the mountains.
+                    </p>
+                    <p class="tl-body">
+                        Found a jazz bar that had the same energy as the one I stumbled into in Thailand.
+                        Also took my friend to her first metal venue, which felt like a fair trade.
+                    </p>
+                </div>
+
+                <!-- ── ENTRY: Back at work ── -->
+                <div class="tl-entry">
+                    <div class="tl-date">Early 2026</div>
+                    <h2 class="tl-title">Back at the day job</h2>
+                    <p class="tl-body">
+                        The gap year wrapped up and I'm back at my previous job. Settling back into a routine
+                        after a year of moving around is its own adjustment.
+                    </p>
+                </div>
+
+                <!-- ── ENTRY: Nanjing ── -->
+                <div class="tl-entry">
+                    <div class="tl-date">2025</div>
+                    <h2 class="tl-title">Gap year — studying Mandarin in Nanjing</h2>
+                    <p class="tl-body">
+                        Spent the year living and studying Mandarin in Nanjing. Took classes, ate a lot of
+                        麻辣烫, and documented it all here.
+                    </p>
+                </div>
+
+                <!-- ── ENTRY: China travel ── -->
+                <div class="tl-entry">
+                    <div class="tl-date">September 2025</div>
+                    <h2 class="tl-title">Traveling China — seven cities</h2>
+                    <p class="tl-body">
+                        A longer stint moving around China: Qingdao, Rizhao, Chengdu, Xi'an, Shenzhen,
+                        Guangzhou, and Foshan. Coast, mountains, ancient walls, and Cantonese food — all in
+                        one trip.
+                    </p>
+                </div>
+
+                <!-- ── ENTRY: Thailand ── -->
+                <div class="tl-entry">
+                    <div class="tl-date">April 2024</div>
+                    <h2 class="tl-title">Thailand — the trip that started it all</h2>
+                    <p class="tl-body">
+                        Solo trip to Thailand — my second time there, but the first where I actually tried
+                        talking to people. Met a group of Chinese travellers at a jazz bar and ended up spending
+                        the week with them. Left with new friends and a plan to go to China.
+                    </p>
+                </div>
+
+            </div>
+
+            <p class="now-footer-note">Last updated April 2026</p>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <img src="static/images/lucky_cat.png" alt="Logo" loading="lazy">
+        </div>
+        <div class="footer-content">
+            <p>© 2025 claeryc.com — All Rights Reserved</p>
+            <nav class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy</a>
+            </nav>
+        </div>
+    </footer>
+</div>
+
+<script>
+    (function () {
+        const savedTheme = localStorage.getItem("theme");
+        const root = document.documentElement;
+        if (savedTheme === "dark") { root.classList.add("dark"); root.classList.remove("light"); }
+        else if (savedTheme === "light") { root.classList.add("light"); root.classList.remove("dark"); }
+    })();
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("theme-toggle");
+        if (!btn) return;
+        btn.addEventListener("click", () => {
+            const root = document.documentElement;
+            const nowDark = root.classList.toggle("dark");
+            root.classList.toggle("light", !nowDark);
+            localStorage.setItem("theme", nowDark ? "dark" : "light");
+        });
+    });
+</script>
+<script>
+    (function () {
+        const navbar = document.querySelector('.navbar');
+        if (!navbar) return;
+        let lastY = window.scrollY, ticking = false;
+        const threshold = 20;
+        function isMenuOpen() { const t = document.getElementById('menu-toggle'); return t ? t.checked : false; }
+        function update() {
+            const y = window.scrollY, delta = y - lastY;
+            if (Math.abs(delta) > threshold) {
+                if (delta > 0 && y > threshold && !isMenuOpen()) navbar.classList.add('hide');
+                else if (delta < 0) navbar.classList.remove('hide');
+                lastY = y;
+            } else { lastY = y; }
+            ticking = false;
+        }
+        window.addEventListener('scroll', function () { if (!ticking) { window.requestAnimationFrame(update); ticking = true; } }, { passive: true });
+    })();
+</script>
+<script>
+    const original = "Eric's Blog", alternate = "思烨的博客";
+    let showingOriginal = true, interval;
+    function scrambleText(element, text) {
+        const chars = "!@#$%^&*()_+=-{}[];:<>?,.";
+        let iterations = 0;
+        clearInterval(interval);
+        interval = setInterval(() => {
+            const scrambled = text.split("").map((char, i) => i < iterations ? char : chars[Math.floor(Math.random() * chars.length)]).join("");
+            element.textContent = scrambled;
+            if (iterations >= text.length) clearInterval(interval);
+            iterations += 1 / 2;
+        }, 50);
+    }
+    setInterval(() => {
+        const nameEl = document.getElementById("scrambleName");
+        showingOriginal = !showingOriginal;
+        scrambleText(nameEl, showingOriginal ? original : alternate);
+    }, 3000);
+</script>
+
+</body>
+</html>
