@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Eric's Chinese language learning journey — studying Mandarin at university in Nanjing, China.">
+    <title>China Journey — Claeryc</title>
+    <link href="static/blog/styles.css" rel="stylesheet">
+    <link href="static/blog/navbar.css" rel="stylesheet">
+    <link href="static/blog/projects.css" rel="stylesheet">
+    <link href="static/blog/footer.css" rel="stylesheet">
+    <link href="static/blog/image-cards.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="index.html">
+    <div class="logo">
+      <h3 class="logo-title"><span class="name-wrapper"><span id="scrambleName">Eric's Blog</span></span></h3>
+    </div>
+  </a>
+
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blogs</a>
+    <a href="recs.html">Recs</a>
+    <a href="#">Contact</a>
+    <button id="theme-toggle">Theme</button>
+  </div>
+</nav>
+
+<div class="page-wrapper">
+    <main class="mcontent">
+        <div class="content-block">
+
+            <section id="learning-content_list">
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li><a href="#learning-story">My Story</a></li>
+                    <li><a href="#learning-resources">Learning Resources</a></li>
+                    <li><a href="#images">Journey Timeline</a></li>
+                    <li>
+                        <a href="#learning-progress">Progress</a>
+                        <ul>
+                            <li><a href="#progress-2025-02-02">Exploration <small>(Feb 02, 2025)</small></a></li>
+                            <li><a href="#progress-2025-02-24">First Mandarin Classes <small>(Feb 24, 2025)</small></a></li>
+                            <li><a href="#progress-2025-03-01">First Impressions <small>(Mar 01, 2025)</small></a></li>
+                            <li><a href="#progress-2025-03-19">Pastry Carvings <small>(Mar 19, 2025)</small></a></li>
+                            <li><a href="#progress-2025-04-03">Reading Attempt <small>(Apr 03, 2025)</small></a></li>
+                            <li><a href="#progress-2025-04-09">Farewell Lunch <small>(Apr 09, 2025)</small></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#howtostart">How do I start?</a></li>
+                </ul>
+            </section>
+
+            <br>
+            <section id="learning-story">
+                <h1 class="hero-text">My Learning Story</h1>
+
+                <p>
+                    Have you ever wanted to challenge your view on culture and society, or step outside your comfort zone?
+                    Deciding to learn Chinese did just that for me—let me explain how and what I mean by this.
+                </p>
+
+                <p>
+                    By learning a new language, you not only acquire the skill to read and speak it, but you also become
+                    more immersed in the culture in which it is spoken. Being aware of this can make the entire process
+                    more fun and fulfilling.
+                </p>
+
+                <p>
+                    The main factor that accounts for being consistent with learning and turning it into a habit is
+                    <strong>motivation</strong>. However, there isn't just one blueprint to follow in order to reach it—it
+                    heavily relies on personal circumstances and preferences. You have to ask yourself: what's the reason
+                    for wanting to learn <em>this</em> language?
+                </p>
+
+                <ul>
+                    <li>Is it just pure boredom?</li>
+                    <li>Do I want to travel to another country?</li>
+                    <li>Do I have friends or family who speak that language?</li>
+                    <li>Do I want to challenge my worldview and be open to new experiences?</li>
+                </ul>
+
+                <p>
+                    The last factor was my personal reason. Depending on what <em>your</em> reason might be, it can
+                    significantly impact your motivation and the time required to study and reach your personally set goals.
+                </p>
+
+                <p>
+                    Below, I'll lay out how exactly I started, what resources I used, what my progress looks like, and what
+                    I have learned throughout my studies—starting from using simple apps, all the way to living in China
+                    and studying in one of the most populated cities.
+                </p>
+            </section>
+
+            <br>
+            <section id="learning-resources">
+                <h1 class="hero-text">Learning Resources</h1>
+                <p>Here are my favorite resources for language learning.</p>
+
+                <!-- lang_resources.html inlined -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Method</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="card-border">
+                            <td class="rank-s" data-label="Rank">S</td>
+                            <td class="lang-res_name">HelloChinese</td>
+                            <td>App</td>
+                            <td>bitesized vocabulary learning to build a habit</td>
+                        </tr>
+                        <tr class="card-border">
+                            <td class="rank-s" data-label="Rank">S</td>
+                            <td class="lang-res_name">Pleco</td>
+                            <td>App</td>
+                            <td>undoubtedly the most versatile and complete dictionary app for learning Chinese</td>
+                        </tr>
+                        <tr class="card-border">
+                            <td class="rank-a" data-label="Rank">A</td>
+                            <td class="lang-res_name">Duolingo</td>
+                            <td>App</td>
+                            <td>bitesized vocabulary learning to build a habit</td>
+                        </tr>
+                        <tr class="card-border">
+                            <td class="rank-a" data-label="Rank">A</td>
+                            <td class="lang-res_name">Tandem / HelloTalk</td>
+                            <td>Social / Messenger</td>
+                            <td>interactive exchange with other language learners / natives</td>
+                        </tr>
+                        <tr class="card-border">
+                            <td class="rank-b" data-label="Rank">B</td>
+                            <td class="lang-res_name">HSK Books</td>
+                            <td>Book</td>
+                            <td>traditional learning material for writing and comprehension</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br>
+                <p>Regardless of the Rank that I gave these methods, don't think that ones I ranked lower, or haven't mentioned are not worth picking up.</p>
+                <p>In fact, all of these have been equally helpful to me throughout my language learning journey so far. The list just represents what is currently the most useful to me and is subject to change later on, which is why I might update the ranking in the future.</p>
+                <p>Here I will briefly break down the reasoning for the choices I've made:</p>
+                <ul>
+                    <li>If starting out learning Chinese, or another language, without being exposed to it before, I believe that Duolingo might be a good choice for a lot of people to provide them a surface level, yet fun way of being briefly introduced to it.</li>
+                    <li>If one wants to learn Chinese in particular, I think that HelloChinese is a better alternative to the previously mentioned app, as it entirely focuses on Mandarin and provides better and a greater variety of material.</li>
+                    <li>Most importantly is to apply the learned material by reinforcement. That can be done by writing, speaking or in other ways. One way could be by talking to other language learners, or better yet, native speakers. (I will go into more details later)</li>
+                </ul>
+                <div class="callout warning">
+                    <strong>Additional:</strong> Make sure to seek out other free resources on YouTube, or other platforms, as well as this valuable website, called <a href="https://resources.allsetlearning.com/chinese/grammar/" style="font-style: italic; border-bottom: black 1px solid;"><strong>Chinese Grammar Wiki</strong></a>!
+                </div>
+            </section>
+
+            <br>
+            <section id="images">
+                <h1>Journey Timeline</h1>
+
+                <!-- image_cards.html inlined -->
+                <div class="image-cards">
+                    <div class="action-bar">
+                        <a href="#week-1">Week 1-10</a>
+                        <a href="#week-2">Week 11-14</a>
+                    </div>
+                    <ul class="carousel">
+                        <li class="day-card">
+                            <a id="week-1" class="scroll-target">
+                                <span class="day-label">Phase 1.1</span>
+                                <span class="transport-label">Week 1-2</span>
+                                <img src="static/images/cn_first-impressions.jpeg" alt="Exploration" class="mobile-adjust" loading="lazy">
+                                <div class="meta">
+                                    <h2 class="location">Exploration</h2>
+                                    <p class="desc">Since I have already been to China before, I decided to check out Nanjing upon arrival.</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="day-card">
+                            <span class="day-label">Phase 1.2</span>
+                            <span class="transport-label">Week 2-4</span>
+                            <img src="static/images/cn_mandarin-classes.jpeg" alt="1st mandarin lesson" class="mobile-adjust" loading="lazy">
+                            <div class="meta">
+                                <h2 class="location">1st mandarin lesson</h2>
+                                <p class="desc">The first lesson entirely being held in mandarin turned out to be quite the challenge.</p>
+                            </div>
+                        </li>
+                        <li class="day-card">
+                            <span class="day-label">Phase 1.3</span>
+                            <span class="transport-label">Week 5-6</span>
+                            <img src="static/images/cn_train-station.jpeg" alt="1st Impressions" class="mobile-adjust" loading="lazy">
+                            <div class="meta">
+                                <h2 class="location">1st Impressions</h2>
+                                <p class="desc">After being here for a longer time, some <a class="blog-link" href="">unexpected events</a> have been noticeable.</p>
+                            </div>
+                        </li>
+                        <li class="day-card">
+                            <span class="day-label">Phase 1.4</span>
+                            <span class="transport-label">Week 6</span>
+                            <img src="static/images/cn_dorm-cooking.jpeg" alt="Pastry cravings" class="mobile-adjust" loading="lazy">
+                            <div class="meta">
+                                <h2 class="location">Pastry cravings</h2>
+                                <p class="desc">After a while I craved for pancakes.. me and my classmate Masha decided to make some!</p>
+                            </div>
+                        </li>
+                        <li class="day-card">
+                            <span class="day-label">Phase 1.5</span>
+                            <span class="transport-label">Week 7</span>
+                            <img src="static/images/cn_delightful-meal.jpeg" alt="Time for local cuisine" loading="lazy">
+                            <div class="meta">
+                                <h2 class="location">Time for local cuisine</h2>
+                                <p class="desc">A Chinese friend of ours took us to a restaurant to have a shared meal.</p>
+                            </div>
+                        </li>
+                        <li class="day-card">
+                            <span class="day-label">Phase 1.6</span>
+                            <span class="transport-label">Week 8-9</span>
+                            <img src="static/images/cn_reading-attempt.jpeg" alt="Reading Attempt" loading="lazy">
+                            <div class="meta">
+                                <h2 class="location">Reading Attempt</h2>
+                                <p class="desc">I accidentally bought a Cantonese book, which was beyond my current reading skills.</p>
+                            </div>
+                        </li>
+                        <li class="day-card">
+                            <span class="day-label">Phase 1.7</span>
+                            <span class="transport-label">Week 10</span>
+                            <img src="static/images/cn_farewell-lunch.jpeg" alt="Farewell Lunch" loading="lazy">
+                            <div class="meta">
+                                <h2 class="location">Farewell Lunch</h2>
+                                <p class="desc">We gathered to say goodbye to our classmate who left to pursue his dream in America.</p>
+                            </div>
+                        </li>
+                        <li class="day-card week-start">
+                            <a id="week-2" class="scroll-target"></a>
+                            <span class="day-label">Phase 2.1</span>
+                            <span class="transport-label">Week 11</span>
+                            <img src="static/images/cn_metal-concert.jpeg" alt="Metal Concert" loading="lazy">
+                            <div class="meta">
+                                <h2 class="location">Metal Concert</h2>
+                                <p class="desc">I didn't plan for it, but I was able to attend a metal concert in China!</p>
+                            </div>
+                        </li>
+                        <li class="day-card">
+                            <span class="day-label">Phase 2.2</span>
+                            <span class="transport-label">12</span>
+                            <img src="static/images/cn_study-distraction.jpeg" alt="Study session" loading="lazy">
+                            <div class="meta">
+                                <h2 class="location">Study session</h2>
+                                <p class="desc">The habit of studying daily vanished, as I often got distracted...</p>
+                            </div>
+                        </li>
+                        <li class="day-card">
+                            <span class="day-label">Phase 2.3</span>
+                            <span class="transport-label">Week 13</span>
+                            <img src="static/images/cn_nju-orchestra.jpeg" alt="Last Sprint" class="mobile-adjust" loading="lazy">
+                            <div class="meta">
+                                <h2 class="location">Last Sprint</h2>
+                                <p class="desc">We planned to drink at a festival, but ended up in the audience of an orchestra.</p>
+                            </div>
+                        </li>
+                        <li class="day-card">
+                            <span class="day-label">Phase 2.4</span>
+                            <span class="transport-label">Week 14</span>
+                            <img src="static/images/cn_graduation.jpeg" alt="Graduation" class="mobile-adjust" loading="lazy">
+                            <div class="meta">
+                                <h2 class="location">Graduation</h2>
+                                <p class="desc">At last, we finally graduated! Now it's time for our semester break.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="plane"></div>
+                </div>
+            </section>
+
+            <br>
+            <section id="learning-progress">
+                <h1 class="hero-text">Progress - Breakdown of the Timeline</h1>
+
+                <section class="progress-entry" id="progress-2025-02-02">
+                    <div class="progress-header">
+                        <h4>Exploration</h4>
+                        <span class="progress-date">Feb 02, 2025</span>
+                    </div>
+                    <p>I arrived in China on February 2nd, marking my third visit to the country.</p>
+                    <p>Traveling in China can be quite challenging for foreigners who come unprepared. Fortunately, having already visited twice before, I was able to focus entirely on exploring the city, Nanjing.</p>
+                    <p>Before moving into my dorm, I had a couple of weeks to myself. During this time, I explored the campus area and tried out the nearby food options on my own, as I hadn't yet met my fellow classmates.</p>
+                    <p>The weather was still cold, and the days were short. Luckily, my arrival coincided with the Lantern Festival. Seeing the old town district illuminated with countless glowing lanterns was a truly mesmerizing experience. <span style="font-style: italic;">(I will cover more about the first month in an upcoming blog post)</span></p>
+                </section>
+
+                <section class="progress-entry" id="progress-2025-02-24">
+                    <div class="progress-header">
+                        <h4>First Language Classes</h4>
+                        <span class="progress-date">February 24, 2025</span>
+                    </div>
+                    <p>Having classes in China is quite a unique experience for someone coming from Europe...</p>
+                    <p>The first week of classes acted as an orientation week to find the right difficulty for us. We were able to sit down and participate and switch to a higher or lower level if we so please.</p>
+                    <p>Already having learned Chinese before made me quite confident in picking the higher Elementary level and even played with the idea of choosing the lower Intermediate class. Well, this was before I actually took any classes.</p>
+                    <p>It turned out that I was overconfident in my capabilities since the classes and content were much more difficult than initially anticipated, which is why I settled for the higher Elementary course.</p>
+                    <p>I was able to understand a lot of the words, but the difficulty quickly ramped up in the coming weeks, as the main teacher only spoke Mandarin and didn't use any English to explain new concepts. That proved to be quite the challenge for me and my classmates.</p>
+                </section>
+
+                <section class="progress-entry" id="progress-2025-03-01">
+                    <div class="progress-header">
+                        <h4>First Impressions</h4>
+                        <span class="progress-date">March 01, 2025</span>
+                    </div>
+                    <p>There were still a few things I hadn't experienced during my first two visits to China.</p>
+                    <p>This time, instead of sightseeing, I focused on living as I normally would back home. That way, it was easier to notice the direct differences in everyday life.</p>
+                    <p>One clear example is the subway and train system. To enter the subway, passengers must first purchase a ticket or pay with a QR code or NFC — it's impossible to pass the security checkpoint without doing so. At most checkpoints, security requires passengers to hand over their water bottles for scanning, and sometimes they even ask you to take a sip before passing through. Bags must also be scanned, with their contents displayed on a monitor for inspection.</p>
+                    <p>The process at train stations is very similar, with the main difference being the need to present a passport. It gets scanned twice to ensure proper identity verification.</p>
+                    <p>While the procedure may seem strict at first, it actually makes traveling feel much safer, and the entire process only takes a few seconds.</p>
+                    <img src="static/images/cn_train-station.jpeg" alt="Chinese train station" loading="lazy">
+                </section>
+
+                <section class="progress-entry" id="progress-2025-03-19">
+                    <div class="progress-header">
+                        <h4>Pastry Cravings</h4>
+                        <span class="progress-date">March 19, 2025</span>
+                    </div>
+                    <p>It was bound to happen sooner or later — my first night out in the city.</p>
+                    <p>Before heading out for drinks with my German classmate, I met up with Masha, my Russian friend.</p>
+                    <p>We were both craving something sweet, so we decided to make pancakes together. We had originally planned to invite our friend Luis, but since he was busy that day, we postponed our plans with him. Masha was already familiar with the dormitory kitchen, so she took charge of the cooking while I went to the nearest supermarket to buy the ingredients.</p>
+                    <p>By the time we finished, it was already evening, and I had just enough time to head out and meet my other friend for a couple of drinks.</p>
+                </section>
+
+                <section class="progress-entry" id="progress-2025-04-03">
+                    <div class="progress-header">
+                        <h4>Reading Attempt</h4>
+                        <span class="progress-date">April 3, 2025</span>
+                    </div>
+                    <p>I wanted to challenge myself by reading a Chinese book. Unfortunately, the book I bought turned out to be written in Cantonese rather than Mandarin.</p>
+                    <p>Although Cantonese and Mandarin share many similarities, their grammar, vocabulary, and pronunciation differ significantly. This made it nearly impossible for me to read even a single line of the book.</p>
+                    <p>For example:</p>
+                    <ul>
+                        <li><strong>"To give" in Cantonese:</strong> 畀 (bei2) — a word closer to the ancient Chinese term for "give."</li>
+                        <li><strong>"To give" in Mandarin:</strong> 给 (gěi) — the modern term commonly used in Mandarin.</li>
+                    </ul>
+                </section>
+
+                <section class="progress-entry" id="progress-2025-04-09">
+                    <div class="progress-header">
+                        <h4>Farewell Lunch</h4>
+                        <span class="progress-date">April 9, 2025</span>
+                    </div>
+                    <p>All good things eventually come to an end.</p>
+                    <p>During the first few weeks, many new friendships formed, one of them with our witty and humorous friend from the UK.</p>
+                    <p>We were surprised when he suddenly announced his decision to change plans, travel to America, and take part in organizing a summer camp.</p>
+                    <p>Before he left the language course at the university, we gathered with several friends — including our teacher — and went to Haidilao for a hotpot dinner.</p>
+                    <img src="static/images/cn_farewell-lunch.jpeg" alt="Farewell lunch at Haidilao" loading="lazy">
+                </section>
+            </section>
+            <br>
+
+            <section id="howtostart">
+                <h1>How do I start?</h1>
+                <p>
+                    The way I started studying was by loading up Duolingo to get a first impression of the language.
+                    At the beginning, it felt quite simple. The app introduces users to
+                    <strong>Pinyin</strong> (<span lang="zh-Hans">拼音</span>, <em>pīnyīn</em>), the Romanization system for Chinese,
+                    alongside <strong>Hanzi</strong> (<span lang="zh-Hans">汉字</span>, <em>hànzì</em>), the Chinese characters.
+                    Unlike the Roman alphabet, Chinese characters represent <strong>meaning</strong> rather than sound.
+                </p>
+
+                <p>
+                    One important tip: commit early on to learning <strong>Hanzi</strong> while also practicing the pronunciation
+                    of <strong>Pinyin</strong>. This is crucial if you want to actually speak the language and not just read or write it.
+                    If you skip this step and try to fix your pronunciation later, it will almost certainly be much more difficult.
+                    A very useful resource I used is this interactive Pinyin chart:
+                    <a href="https://yoyochinese.com/chinese-learning-tools/Mandarin-Chinese-pronunciation-lesson/pinyin-chart-table"
+                       target="_blank" rel="noopener noreferrer" style="font-style: italic; border-bottom: 1px solid var(--fg); color: var(--fg);">Yoyo Chinese – Chinese learning tools</a>.
+                </p>
+
+                <p>
+                    It's also recommended to start understanding how Chinese characters are constructed early on.
+                    This makes it easier to recognize new characters, as many share common parts.
+                    Most characters consist of two components: one <strong>semantic (symbolic)</strong> component and one
+                    <strong>phonetic</strong> component.
+                </p>
+                <img src="static/images/character-structures.jpg" alt="Chinese character structures" loading="lazy">
+
+                <h3>Example: Character Structure</h3>
+                <p>
+                    For example, the character <strong><span lang="zh-Hans">姐</span></strong> (on the second row of the table below) consists of two parts:
+                </p>
+                <ul>
+                    <li>Left: semantic component <strong><span lang="zh-Hans">女</span></strong>, meaning <em>female, woman</em>.</li>
+                    <li>Right: phonetic component <strong><span lang="zh-Hans">且</span></strong>, pronounced <em>qiě</em>.</li>
+                </ul>
+                <p>Together, the meaning of the character is <em>big sister</em>.</p>
+                <p>
+                    Some characters consist of three components (as shown in the 4th and 5th rows of the table below).
+                    Others are simple, single-component characters, such as:
+                </p>
+                <ul>
+                    <li><strong><span lang="zh-Hans">口</span></strong></li>
+                    <li><strong><span lang="zh-Hans">大</span></strong></li>
+                    <li><strong><span lang="zh-Hans">水</span></strong></li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <img src="static/images/lucky_cat.png" alt="Logo" loading="lazy">
+        </div>
+        <div class="footer-content">
+            <p>© 2025 claeryc.com — All Rights Reserved</p>
+            <nav class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy</a>
+            </nav>
+        </div>
+    </footer>
+</div>
+
+<!-- Theme script -->
+<script>
+    (function () {
+        const savedTheme = localStorage.getItem("theme");
+        const root = document.documentElement;
+        if (savedTheme === "dark") {
+            root.classList.add("dark");
+            root.classList.remove("light");
+        } else if (savedTheme === "light") {
+            root.classList.add("light");
+            root.classList.remove("dark");
+        }
+    })();
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("theme-toggle");
+        if (!btn) return;
+        btn.addEventListener("click", () => {
+            const root = document.documentElement;
+            const nowDark = root.classList.toggle("dark");
+            root.classList.toggle("light", !nowDark);
+            localStorage.setItem("theme", nowDark ? "dark" : "light");
+        });
+    });
+</script>
+
+<!-- Navbar hide-on-scroll -->
+<script>
+    (function () {
+        const navbar = document.querySelector('.navbar');
+        if (!navbar) return;
+        let lastY = window.scrollY;
+        let ticking = false;
+        const threshold = 20;
+        function isMenuOpen() {
+            const menuToggle = document.getElementById('menu-toggle');
+            return menuToggle ? menuToggle.checked : false;
+        }
+        function update() {
+            const y = window.scrollY;
+            const delta = y - lastY;
+            if (Math.abs(delta) > threshold) {
+                if (delta > 0 && y > threshold && !isMenuOpen()) {
+                    navbar.classList.add('hide');
+                } else if (delta < 0) {
+                    navbar.classList.remove('hide');
+                }
+                lastY = y;
+            } else {
+                lastY = y;
+            }
+            ticking = false;
+        }
+        window.addEventListener('scroll', function () {
+            if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+        }, { passive: true });
+    })();
+</script>
+
+<!-- Navbar logo scramble -->
+<script>
+    const original = "Eric's Blog";
+    const alternate = "思烨的博客";
+    let showingOriginal = true;
+    let interval;
+    function scrambleText(element, text) {
+        const chars = "!@#$%^&*()_+=-{}[];:<>?,.";
+        let iterations = 0;
+        clearInterval(interval);
+        interval = setInterval(() => {
+            const scrambled = text.split("").map((char, i) => {
+                if (i < iterations) return char;
+                return chars[Math.floor(Math.random() * chars.length)];
+            }).join("");
+            element.textContent = scrambled;
+            if (iterations >= text.length) clearInterval(interval);
+            iterations += 1 / 2;
+        }, 50);
+    }
+    setInterval(() => {
+        const nameEl = document.getElementById("scrambleName");
+        showingOriginal = !showingOriginal;
+        scrambleText(nameEl, showingOriginal ? original : alternate);
+    }, 3000);
+</script>
+
+</body>
+</html>

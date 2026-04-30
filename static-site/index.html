@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Eric's personal blog — travel, language learning in China, and ideas on AI and culture.">
+    <title>Claeryc</title>
+    <link href="static/blog/styles.css" rel="stylesheet">
+    <link href="static/blog/navbar.css" rel="stylesheet">
+    <link href="static/blog/projects.css" rel="stylesheet">
+    <link href="static/blog/footer.css" rel="stylesheet">
+    <link href="static/blog/post_listing_layout.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="index.html">
+    <div class="logo">
+      <h3 class="logo-title"><span class="name-wrapper"><span id="scrambleName">Eric's Blog</span></span></h3>
+    </div>
+  </a>
+
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blogs</a>
+    <a href="recs.html">Recs</a>
+    <a href="#">Contact</a>
+    <button id="theme-toggle">Theme</button>
+  </div>
+</nav>
+
+<div class="page-wrapper">
+    <main class="mcontent">
+
+        <!-- Hero Section -->
+        <section class="hero hero-background">
+            <div class="hero-overlay"></div>
+            <header>
+                <h1>Welcome to My Blog</h1>
+                <p>Insights, stories, and ideas.</p>
+            </header>
+        </section>
+
+        <!-- Projects Section (map.html) -->
+        <div class="skew-c"></div>
+        <div class="colour-block" style="margin-top: 0rem">
+            <div class="center-container project-block">
+                <header>
+                    <h1 style="padding-top: 5px;">3 Main Projects</h1>
+                </header>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-stretch flex-wrap, card-wrapper">
+                    <div class="card-container zhejiang"
+                        data-tilt data-tilt-max="10" data-tilt-speed="500" data-tilt-perspective="1800"
+                        data-tilt-glare data-tilt-max-glare="0.1" data-tilt-scale="1.03" data-tilt-reset="true">
+                        <div class="inner-border-overlay" data-tilt-transform-element></div>
+                        <div class="content-area p-4 sm:p-5 lg:p-7" data-tilt-transform-element>
+                            <div class="gradient-overlay"></div>
+                            <div class="text-block" data-tilt-transform-element>
+                                <h1 class="font-serif-display text-3xl sm:text-4xl lg:text-3xl font-bold mb-2">
+                                    语言留学生
+                                </h1>
+                                <p class="text-sm sm:text-base lg:text-lg font-light">
+                                    Nanjing, China
+                                </p>
+                            </div>
+                            <a href="chinese.html" class="tour-button" data-tilt-transform-element>
+                                Check it out
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 5l7 7-7 7"></path>
+                                    <path d="M5 12h14"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card-container bookcafe"
+                        data-tilt data-tilt-max="10" data-tilt-speed="500" data-tilt-perspective="1800"
+                        data-tilt-glare data-tilt-max-glare="0.1" data-tilt-scale="1.03" data-tilt-reset="true">
+                        <div class="inner-border-overlay" data-tilt-transform-element></div>
+                        <div class="content-area p-4 sm:p-5 lg:p-7" data-tilt-transform-element>
+                            <div class="gradient-overlay"></div>
+                            <div class="text-block" data-tilt-transform-element>
+                                <h1 class="font-serif-display text-3xl sm:text-4xl lg:text-3xl font-bold mb-2">
+                                    Travel Journey
+                                </h1>
+                                <p class="text-sm sm:text-base lg:text-lg font-light">
+                                    Thailand, China, etc.
+                                </p>
+                            </div>
+                            <a href="#" class="tour-button" data-tilt-transform-element>
+                                Coming Soon
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card-container dnd"
+                        data-tilt data-tilt-max="10" data-tilt-speed="500" data-tilt-perspective="1800"
+                        data-tilt-glare data-tilt-max-glare="0.1" data-tilt-scale="1.03" data-tilt-reset="true">
+                        <div class="inner-border-overlay" data-tilt-transform-element></div>
+                        <div class="content-area p-4 sm:p-5 lg:p-7" data-tilt-transform-element>
+                            <div class="gradient-overlay"></div>
+                            <div class="text-block" data-tilt-transform-element>
+                                <h1 class="font-serif-display text-3xl sm:text-4xl lg:text-3xl font-bold mb-2, boujee-text-2">
+                                    Mini Projects
+                                </h1>
+                                <p class="text-sm sm:text-base lg:text-lg font-light">
+                                    Coding, Gaming
+                                </p>
+                            </div>
+                            <a href="#" class="tour-button" data-tilt-transform-element>
+                                Coming Soon
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skew-cc">
+            <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path fill="#1e1e1f" d="M0,0 C360,100 1080,0 1440,100 V100 H0 Z" />
+            </svg>
+        </div>
+
+        <!-- Search -->
+        <div style="display: flex; justify-content: center; margin-bottom: 2em; margin-top: 70px;">
+            <form id="search-form" action="blog.html">
+                <label for="search"> </label>
+                <input id="search" class="search" type="text" name="q" placeholder="Enter title name">
+                <a href="blog.html" class="all">All posts</a>
+            </form>
+        </div>
+
+        <!-- Blog Listing -->
+        <div class="post-listing-container">
+            <div class="post-listing-main">
+                <div id="posts" class="p_card-container">
+
+                    <a class="p_card" href="posts/zuoye_kouyu2.html">
+                        <img src="static/images/bp_drawing_tbn.png" alt="Drawing Challenge (first try in over a decade...)" loading="lazy">
+                        <div>
+                            <div class="p_card-title">Drawing Challenge (first try in over a decade...)</div>
+                            <div class="p_card-date">2025-12-18</div>
+                        </div>
+                    </a>
+
+                    <a class="p_card" href="posts/zuoye_kouyu.html">
+                        <img src="static/images/blog_thailand-banner.jpg" alt="中上2班 - 口语课作业" loading="lazy">
+                        <div>
+                            <div class="p_card-title">中上2班 - 口语课作业</div>
+                            <div class="p_card-date">2025-09-18</div>
+                        </div>
+                    </a>
+
+                    <a class="p_card" href="posts/fourth-post.html">
+                        <img src="static/images/ghostp.jpg" alt="AI is becoming inbred" loading="lazy">
+                        <div>
+                            <div class="p_card-title">AI is becoming inbred</div>
+                            <div class="p_card-date">2025-08-15</div>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            <div class="post-listing-aside">
+                <img src="static/images/Bulldog.webp" alt="Bulldog" loading="lazy">
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <img src="static/images/lucky_cat.png" alt="Logo" loading="lazy">
+        </div>
+        <div class="footer-content">
+            <p>© 2025 claeryc.com — All Rights Reserved</p>
+            <nav class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy</a>
+            </nav>
+        </div>
+    </footer>
+</div>
+
+<!-- Theme script -->
+<script>
+    (function () {
+        const savedTheme = localStorage.getItem("theme");
+        const root = document.documentElement;
+        if (savedTheme === "dark") {
+            root.classList.add("dark");
+            root.classList.remove("light");
+        } else if (savedTheme === "light") {
+            root.classList.add("light");
+            root.classList.remove("dark");
+        }
+    })();
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("theme-toggle");
+        if (!btn) return;
+        btn.addEventListener("click", () => {
+            const root = document.documentElement;
+            const nowDark = root.classList.toggle("dark");
+            root.classList.toggle("light", !nowDark);
+            localStorage.setItem("theme", nowDark ? "dark" : "light");
+        });
+    });
+</script>
+
+<!-- Navbar hide-on-scroll -->
+<script>
+    (function () {
+        const navbar = document.querySelector('.navbar');
+        if (!navbar) return;
+        let lastY = window.scrollY;
+        let ticking = false;
+        const threshold = 20;
+        function isMenuOpen() {
+            const menuToggle = document.getElementById('menu-toggle');
+            return menuToggle ? menuToggle.checked : false;
+        }
+        function update() {
+            const y = window.scrollY;
+            const delta = y - lastY;
+            if (Math.abs(delta) > threshold) {
+                if (delta > 0 && y > threshold && !isMenuOpen()) {
+                    navbar.classList.add('hide');
+                } else if (delta < 0) {
+                    navbar.classList.remove('hide');
+                }
+                lastY = y;
+            } else {
+                lastY = y;
+            }
+            ticking = false;
+        }
+        window.addEventListener('scroll', function () {
+            if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+        }, { passive: true });
+    })();
+</script>
+
+<!-- Navbar logo scramble -->
+<script>
+    const original = "Eric's Blog";
+    const alternate = "思烨的博客";
+    let showingOriginal = true;
+    let interval;
+    function scrambleText(element, text) {
+        const chars = "!@#$%^&*()_+=-{}[];:<>?,.";
+        let iterations = 0;
+        clearInterval(interval);
+        interval = setInterval(() => {
+            const scrambled = text.split("").map((char, i) => {
+                if (i < iterations) return char;
+                return chars[Math.floor(Math.random() * chars.length)];
+            }).join("");
+            element.textContent = scrambled;
+            if (iterations >= text.length) clearInterval(interval);
+            iterations += 1 / 2;
+        }, 50);
+    }
+    setInterval(() => {
+        const nameEl = document.getElementById("scrambleName");
+        showingOriginal = !showingOriginal;
+        scrambleText(nameEl, showingOriginal ? original : alternate);
+    }, 3000);
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".callout-vid").forEach(callout => {
+            callout.addEventListener("click", function () {
+                this.classList.toggle("collapsed");
+                window.scrollBy({ top: 450, left: 0, behavior: "smooth" });
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

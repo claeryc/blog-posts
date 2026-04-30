@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!--
+=======================================================
+  HOW TO ADD A NEW POST
+=======================================================
+
+1. COPY THIS FILE and rename it to your-post-slug.html
+   (use lowercase, hyphens instead of spaces)
+
+2. FILL IN the placeholders marked with ALL_CAPS below:
+   - POST_TITLE       → the title shown in the browser tab and <h1>
+   - POST_DESCRIPTION → a one-sentence summary for search engines
+   - POST_CONTENT     → your article HTML (see the <article> section)
+
+3. ADD A CARD in both ../index.html and ../blog.html.
+   Copy and paste this snippet into the p_card-container div,
+   and adjust the href, src, alt, title, and date:
+
+   ┌─────────────────────────────────────────────────────┐
+   │ <a class="p_card post-card"                         │
+   │    href="posts/your-post-slug.html"                 │
+   │    data-title="POST_TITLE">                         │
+   │   <img src="static/images/your-thumbnail.jpg"      │
+   │        alt="POST_TITLE" loading="lazy">             │
+   │   <div>                                             │
+   │     <div class="p_card-title">POST_TITLE</div>      │
+   │     <div class="p_card-date">YYYY-MM-DD</div>       │
+   │   </div>                                            │
+   │ </a>                                                │
+   └─────────────────────────────────────────────────────┘
+
+   Note: index.html shows only the 3 most recent posts —
+   add the card at the TOP of the container and remove the
+   oldest one. blog.html shows all posts — just add at the top.
+
+4. ADD YOUR THUMBNAIL IMAGE to ../static/images/
+
+5. DONE — no build step, no server restart needed.
+=======================================================
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="POST_DESCRIPTION">
+    <title>POST_TITLE — Claeryc</title>
+    <link href="../static/blog/styles.css" rel="stylesheet">
+    <link href="../static/blog/navbar.css" rel="stylesheet">
+    <link href="../static/blog/projects.css" rel="stylesheet">
+    <link href="../static/blog/footer.css" rel="stylesheet">
+    <!-- Add extra CSS here if needed, e.g.: -->
+    <!-- <link href="../static/blog/image-cards.css" rel="stylesheet"> -->
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="../index.html">
+    <div class="logo">
+      <h3 class="logo-title"><span class="name-wrapper"><span id="scrambleName">Eric's Blog</span></span></h3>
+    </div>
+  </a>
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="hamburger">
+    <span></span><span></span><span></span>
+  </label>
+  <div class="menu">
+    <a href="../index.html">Home</a>
+    <a href="../blog.html">Blogs</a>
+    <a href="../recs.html">Recs</a>
+    <a href="#">Contact</a>
+    <button id="theme-toggle">Theme</button>
+  </div>
+</nav>
+
+<div class="page-wrapper">
+    <main class="mcontent">
+        <div class="content-block">
+
+            <!-- ============================================================
+                 YOUR POST CONTENT GOES HERE
+
+                 Useful classes available from styles.css:
+
+                 .callout.warning      — orange left-border info box
+                 .vocab-box            — blue vocabulary table container
+                 .vocab-table          — styled table inside .vocab-box
+                 .highlight-box        — shadowed highlight box
+                 .progress-entry       — dated section entry
+                 .progress-header      — flex row for title + date
+                 .progress-date        — gray date label
+                 .video-container      — responsive 16:9 iframe wrapper
+
+                 Example callout:
+                 <div class="callout warning">
+                   <strong>Note:</strong> Some important info here.
+                 </div>
+
+                 Example video:
+                 <div class="video-container">
+                   <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+                           allowfullscreen></iframe>
+                 </div>
+            ============================================================ -->
+
+            <h1>POST_TITLE</h1>
+            <p style="color: gray; font-size: 0.9rem;">YYYY-MM-DD</p>
+
+            <!-- Your content here -->
+            <p>Start writing...</p>
+
+            <!-- ============================================================ -->
+
+            <br>
+            <a href="../index.html#posts">← Home</a>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <img src="../static/images/lucky_cat.png" alt="Logo" loading="lazy">
+        </div>
+        <div class="footer-content">
+            <p>© 2025 claeryc.com — All Rights Reserved</p>
+            <nav class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy</a>
+            </nav>
+        </div>
+    </footer>
+</div>
+
+<script>
+    (function () {
+        const savedTheme = localStorage.getItem("theme");
+        const root = document.documentElement;
+        if (savedTheme === "dark") { root.classList.add("dark"); root.classList.remove("light"); }
+        else if (savedTheme === "light") { root.classList.add("light"); root.classList.remove("dark"); }
+    })();
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("theme-toggle");
+        if (!btn) return;
+        btn.addEventListener("click", () => {
+            const root = document.documentElement;
+            const nowDark = root.classList.toggle("dark");
+            root.classList.toggle("light", !nowDark);
+            localStorage.setItem("theme", nowDark ? "dark" : "light");
+        });
+    });
+</script>
+<script>
+    (function () {
+        const navbar = document.querySelector('.navbar');
+        if (!navbar) return;
+        let lastY = window.scrollY, ticking = false;
+        const threshold = 20;
+        function isMenuOpen() { const t = document.getElementById('menu-toggle'); return t ? t.checked : false; }
+        function update() {
+            const y = window.scrollY, delta = y - lastY;
+            if (Math.abs(delta) > threshold) {
+                if (delta > 0 && y > threshold && !isMenuOpen()) navbar.classList.add('hide');
+                else if (delta < 0) navbar.classList.remove('hide');
+                lastY = y;
+            } else { lastY = y; }
+            ticking = false;
+        }
+        window.addEventListener('scroll', function () { if (!ticking) { window.requestAnimationFrame(update); ticking = true; } }, { passive: true });
+    })();
+</script>
+<script>
+    const original = "Eric's Blog", alternate = "思烨的博客";
+    let showingOriginal = true, interval;
+    function scrambleText(element, text) {
+        const chars = "!@#$%^&*()_+=-{}[];:<>?,.";
+        let iterations = 0;
+        clearInterval(interval);
+        interval = setInterval(() => {
+            const scrambled = text.split("").map((char, i) => i < iterations ? char : chars[Math.floor(Math.random() * chars.length)]).join("");
+            element.textContent = scrambled;
+            if (iterations >= text.length) clearInterval(interval);
+            iterations += 1 / 2;
+        }, 50);
+    }
+    setInterval(() => {
+        const nameEl = document.getElementById("scrambleName");
+        showingOriginal = !showingOriginal;
+        scrambleText(nameEl, showingOriginal ? original : alternate);
+    }, 3000);
+</script>
+
+</body>
+</html>
