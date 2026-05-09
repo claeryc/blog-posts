@@ -198,6 +198,7 @@ section[id] {
     max-width: 700px;
     margin: 0 auto;
     margin-top: 15vh;
+    line-height: 1.5;
 }
 
 .project-block {

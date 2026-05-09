@@ -263,6 +263,57 @@
             -webkit-hyphens: auto;
         }
 
+        /* ── Stats bar ── */
+        .cn-stats {
+            background: var(--bnb);
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            padding: 0 1rem;
+        }
+        .cn-stat {
+            flex: 1;
+            max-width: 180px;
+            text-align: center;
+            padding: 1.8rem 0.75rem;
+            border-right: 1px solid rgba(255,255,255,0.07);
+        }
+        .cn-stat:last-child { border-right: none; }
+        .cn-stat-num {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.9rem, 4vw, 2.6rem);
+            font-weight: 700;
+            color: #facc15;
+            line-height: 1;
+            margin-bottom: 7px;
+        }
+        .cn-stat-label {
+            display: block;
+            font-size: 0.68rem;
+            color: rgba(255,255,255,0.38);
+            text-transform: uppercase;
+            letter-spacing: 0.13em;
+        }
+        @media (max-width: 480px) {
+            .cn-stats { flex-wrap: wrap; }
+            .cn-stat {
+                flex: 1 1 50%;
+                max-width: 50%;
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.07);
+                padding: 1.3rem 0.5rem;
+            }
+            .cn-stat:nth-child(1),
+            .cn-stat:nth-child(3) {
+                border-right: 1px solid rgba(255,255,255,0.07);
+            }
+            .cn-stat:nth-child(3),
+            .cn-stat:nth-child(4) {
+                border-bottom: none;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -301,6 +352,26 @@
             <div class="hero-divider"></div>
             <p class="tagline">Studying Mandarin in Nanjing, China — 2025</p>
         </section>
+
+        <!-- Stats bar -->
+        <div class="cn-stats" aria-label="Trip summary">
+            <div class="cn-stat" data-target="20" data-suffix="+">
+                <span class="cn-stat-num">0</span>
+                <span class="cn-stat-label">weeks in Nanjing</span>
+            </div>
+            <div class="cn-stat" data-target="3" data-suffix="">
+                <span class="cn-stat-num">0</span>
+                <span class="cn-stat-label">visits to China</span>
+            </div>
+            <div class="cn-stat" data-target="9" data-suffix="">
+                <span class="cn-stat-num">0</span>
+                <span class="cn-stat-label">cities visited</span>
+            </div>
+            <div class="cn-stat" data-target="1" data-suffix="">
+                <span class="cn-stat-num">0</span>
+                <span class="cn-stat-label">metal concert</span>
+            </div>
+        </div>
 
         <div class="content-block" style="margin-top: 2.5rem;">
 
@@ -687,5 +758,86 @@
 </script>
 
 <script src="static/blog/main.js" defer></script>
+
+<script>
+/* ── Carousel: drag-to-scroll + mouse-wheel ── */
+(function () {
+    document.addEventListener('DOMContentLoaded', () => {
+        const carousel = document.querySelector('.image-cards .carousel');
+        if (!carousel) return;
+
+        carousel.style.cursor = 'grab';
+
+        let isDragging = false;
+        let startX, startScrollLeft;
+
+        carousel.addEventListener('mousedown', (e) => {
+            isDragging  = true;
+            startX      = e.pageX - carousel.offsetLeft;
+            startScrollLeft = carousel.scrollLeft;
+            carousel.style.cursor = 'grabbing';
+            carousel.style.userSelect = 'none';
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            carousel.style.cursor = 'grab';
+            carousel.style.userSelect = '';
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x    = e.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 1.4;
+            carousel.scrollLeft = startScrollLeft - walk;
+        });
+
+        /* Vertical wheel → horizontal scroll */
+        carousel.addEventListener('wheel', (e) => {
+            if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                e.preventDefault();
+                carousel.scrollLeft += e.deltaY;
+            }
+        }, { passive: false });
+    });
+})();
+
+/* ── Animated stat counters ── */
+(function () {
+    const stats = document.querySelectorAll('.cn-stat');
+    if (!stats.length) return;
+
+    function animateCount(el, target, suffix, duration) {
+        const numEl = el.querySelector('.cn-stat-num');
+        const start = performance.now();
+        function step(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            // ease-out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            numEl.textContent = Math.round(eased * target) + (progress === 1 ? suffix : '');
+            if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el     = entry.target;
+                const target = parseInt(el.dataset.target, 10);
+                const suffix = el.dataset.suffix || '';
+                // stagger each stat slightly based on its position
+                const delay  = Array.from(stats).indexOf(el) * 120;
+                setTimeout(() => animateCount(el, target, suffix, 1000), delay);
+                observer.unobserve(el);
+            }
+        });
+    }, { threshold: 0.6 });
+
+    stats.forEach(s => observer.observe(s));
+})();
+</script>
 </body>
 </html>

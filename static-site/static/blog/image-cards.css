@@ -12,12 +12,14 @@
     display: grid;
     gap: 2rem;
     grid-auto-flow: column;
-    scroll-snap-type: x mandatory;
+    /* scroll-snap removed — asymmetric snapping made reverse scrolling harder */
     overflow-x: auto;
     width: 100%;
     margin-left: calc(-1 * var(--body-padding));
     scrollbar-width: none;
     scroll-behavior: smooth;
+    user-select: none;
+    -webkit-user-select: none;
   }
   
   
@@ -31,7 +33,6 @@
     width: var(--card-width);
     position: relative;
     overflow: hidden;
-    scroll-snap-align: center;
   }
   img {
     backface-visibility: hidden;       /* standard property */
@@ -81,6 +82,7 @@
     text-transform: uppercase;
     font-weight: 500;
     margin-top: 0;
+    color: #fff;
   }
   
   .image-cards .day-label {
