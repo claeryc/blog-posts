@@ -57,8 +57,9 @@
     position: absolute;
     bottom: 0;
     transform: translateY(calc(100% - 3rem));
-    background: #333;
-    color: white;
+    background: rgba(10, 10, 30, 0.82);
+    backdrop-filter: blur(2px);
+    color: #fff;
     padding: 1rem;
     transition: transform 0.5s ease;
   }
@@ -86,8 +87,8 @@
     position: absolute;
     top: 0.5rem;
     left: 0;
-    background: #222;
-    color: white;
+    background: rgba(10, 10, 30, 0.72);
+    color: rgba(255,255,255,0.9);
     font-size: 0.8rem;
     padding: 0.5rem;
     border-radius: 0 .75rem .75rem 0;
@@ -97,23 +98,21 @@
     top: 0.5rem;
     right: 0;
     font-size: 0.8rem;
-    background: #222;
-    color: white;
+    background: rgba(10, 10, 30, 0.72);
+    color: rgba(255,255,255,0.9);
     border-radius: 0.75rem 0 0 0.75rem;
     padding: 0.5rem;
   }
 
   .image-cards .day-card::before {
-    /* counter-increment: day; */
-    /* content: "Day " counter(day); */
     content: none;
     font-size: 0.8rem;
     display: block;
     position: absolute;
     top: 0.5rem;
     left: 0;
-    background: #222;
-    color: white;
+    background: rgba(10, 10, 30, 0.72);
+    color: rgba(255,255,255,0.9);
     padding: 0.5rem;
     border-radius: 0 .75rem .75rem 0;
   }
