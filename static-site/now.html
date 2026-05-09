@@ -242,11 +242,11 @@
             <img src="static/images/lucky_cat.png" alt="Logo" loading="lazy">
         </div>
         <div class="footer-content">
-            <p>© 2025 claeryc.com — All Rights Reserved</p>
+            <p>© 2026 claeryc.com — All Rights Reserved</p>
             <nav class="footer-links">
-                <a href="#">About</a>
-                <a href="#">Contact</a>
-                <a href="#">Privacy</a>
+                <a href="about.html">About</a>
+                <a href="mailto:reeko.it@gmail.com">Contact</a>
+                
             </nav>
         </div>
     </footer>
@@ -260,57 +260,7 @@
         else if (savedTheme === "light") { root.classList.add("light"); root.classList.remove("dark"); }
     })();
 </script>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const btn = document.getElementById("theme-toggle");
-        if (!btn) return;
-        btn.addEventListener("click", () => {
-            const root = document.documentElement;
-            const nowDark = root.classList.toggle("dark");
-            root.classList.toggle("light", !nowDark);
-            localStorage.setItem("theme", nowDark ? "dark" : "light");
-        });
-    });
-</script>
-<script>
-    (function () {
-        const navbar = document.querySelector('.navbar');
-        if (!navbar) return;
-        let lastY = window.scrollY, ticking = false;
-        const threshold = 20;
-        function isMenuOpen() { const t = document.getElementById('menu-toggle'); return t ? t.checked : false; }
-        function update() {
-            const y = window.scrollY, delta = y - lastY;
-            if (Math.abs(delta) > threshold) {
-                if (delta > 0 && y > threshold && !isMenuOpen()) navbar.classList.add('hide');
-                else if (delta < 0) navbar.classList.remove('hide');
-                lastY = y;
-            } else { lastY = y; }
-            ticking = false;
-        }
-        window.addEventListener('scroll', function () { if (!ticking) { window.requestAnimationFrame(update); ticking = true; } }, { passive: true });
-    })();
-</script>
-<script>
-    const original = "Eric's Blog", alternate = "思烨的博客";
-    let showingOriginal = true, interval;
-    function scrambleText(element, text) {
-        const chars = "!@#$%^&*()_+=-{}[];:<>?,.";
-        let iterations = 0;
-        clearInterval(interval);
-        interval = setInterval(() => {
-            const scrambled = text.split("").map((char, i) => i < iterations ? char : chars[Math.floor(Math.random() * chars.length)]).join("");
-            element.textContent = scrambled;
-            if (iterations >= text.length) clearInterval(interval);
-            iterations += 1 / 2;
-        }, 50);
-    }
-    setInterval(() => {
-        const nameEl = document.getElementById("scrambleName");
-        showingOriginal = !showingOriginal;
-        scrambleText(nameEl, showingOriginal ? original : alternate);
-    }, 3000);
-</script>
 
+<script src="static/blog/main.js" defer></script>
 </body>
 </html>

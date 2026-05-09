@@ -62,27 +62,80 @@
         }
 
         .city-dot { cursor: pointer; }
+
         .city-dot .dot-bg {
             fill: var(--fg);
-            fill-opacity: 0.3;
+            fill-opacity: 0.35;
             transition: fill 0.2s, fill-opacity 0.2s;
         }
         .city-dot:hover .dot-bg,
         .city-dot.active .dot-bg {
             fill: #facc15;
             fill-opacity: 1;
-            filter: drop-shadow(0 0 5px rgba(250,204,21,0.6));
+            filter: drop-shadow(0 0 4px rgba(250,204,21,0.7));
         }
-        .city-dot .dot-label {
-            font-size: 8px;
-            fill: var(--fg);
-            fill-opacity: 0;
-            pointer-events: none;
-            transition: fill-opacity 0.2s;
+
+        .city-dot .leader-line {
+            fill: none;
+            stroke: var(--fg);
+            stroke-opacity: 0.2;
+            stroke-width: 0.9;
+            transition: stroke 0.2s, stroke-opacity 0.2s;
+        }
+        .city-dot:hover .leader-line,
+        .city-dot.active .leader-line {
+            stroke: #facc15;
+            stroke-opacity: 0.85;
+        }
+
+        /* Legend sits below the photo panel */
+        .map-legend {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 4px 8px;
+            margin-top: 1rem;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: none;
+            border: none;
+            padding: 5px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
             font-family: 'Segoe UI', sans-serif;
+            color: var(--fg);
+            opacity: 0.5;
+            transition: opacity 0.2s, background 0.2s;
+            text-align: left;
         }
-        .city-dot:hover .dot-label,
-        .city-dot.active .dot-label { fill-opacity: 0.65; }
+        .legend-item:hover {
+            opacity: 0.85;
+            background: rgba(128,128,128,0.08);
+        }
+        .legend-item.active {
+            opacity: 1;
+            color: #c89a00;
+            background: rgba(250,204,21,0.08);
+        }
+        :root.dark .legend-item.active {
+            color: #facc15;
+        }
+        .legend-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: currentColor;
+            flex-shrink: 0;
+            opacity: 0.6;
+        }
+        .legend-item.active .legend-dot {
+            opacity: 1;
+            box-shadow: 0 0 0 2px rgba(250,204,21,0.25);
+        }
 
         .map-hint {
             text-align: center;
@@ -287,32 +340,28 @@
                         -->
                         <polyline class="route-line" points="117,162 124,168 120,182 129,193"/>
 
-                        <!-- Orvieto — Umbria hill town, NW of Rome -->
-                        <g class="city-dot" data-id="orvieto" tabindex="0" role="button" aria-label="Orvieto">
-                            <circle class="dot-bg" cx="117" cy="162" r="6"/>
-                            <text class="dot-label" x="104" y="160" text-anchor="end">Orvieto</text>
+                        <!-- Orvieto -->
+                        <g class="city-dot" data-id="orvieto" tabindex="-1" aria-hidden="true">
+                            <circle class="dot-bg" cx="117" cy="162" r="5"/>
                         </g>
 
-                        <!-- Nani — small town, between Orvieto and Rome -->
-                        <g class="city-dot" data-id="nani" tabindex="0" role="button" aria-label="Nani">
-                            <circle class="dot-bg" cx="124" cy="168" r="6"/>
-                            <text class="dot-label" x="136" y="166" text-anchor="start">Nani</text>
+                        <!-- Nani -->
+                        <g class="city-dot" data-id="nani" tabindex="-1" aria-hidden="true">
+                            <circle class="dot-bg" cx="124" cy="168" r="5"/>
                         </g>
 
-                        <!-- Oriolo — NW of Rome, countryside camping -->
-                        <g class="city-dot" data-id="oriolo" tabindex="0" role="button" aria-label="Oriolo">
-                            <circle class="dot-bg" cx="120" cy="182" r="6"/>
-                            <text class="dot-label" x="108" y="180" text-anchor="end">Oriolo</text>
+                        <!-- Oriolo -->
+                        <g class="city-dot" data-id="oriolo" tabindex="-1" aria-hidden="true">
+                            <circle class="dot-bg" cx="120" cy="182" r="5"/>
                         </g>
 
                         <!-- Rome -->
-                        <g class="city-dot" data-id="rome" tabindex="0" role="button" aria-label="Rome">
-                            <circle class="dot-bg" cx="129" cy="193" r="6"/>
-                            <text class="dot-label" x="141" y="191" text-anchor="start">Roma</text>
+                        <g class="city-dot" data-id="rome" tabindex="-1" aria-hidden="true">
+                            <circle class="dot-bg" cx="129" cy="193" r="5"/>
                         </g>
 
                     </svg>
-                    <p class="map-hint">tap a marker</p>
+                    <p class="map-hint">tap a stop to see photos</p>
                 </div>
 
                 <!-- ── Photo panel ── -->
@@ -410,6 +459,21 @@
                         </div>
                     </div>
 
+                    <div class="map-legend">
+                        <button class="legend-item" data-id="orvieto">
+                            <span class="legend-dot"></span>Orvieto
+                        </button>
+                        <button class="legend-item" data-id="nani">
+                            <span class="legend-dot"></span>Nani
+                        </button>
+                        <button class="legend-item" data-id="oriolo">
+                            <span class="legend-dot"></span>Oriolo
+                        </button>
+                        <button class="legend-item" data-id="rome">
+                            <span class="legend-dot"></span>Roma
+                        </button>
+                    </div>
+
                 </div><!-- /photo-panel -->
             </div><!-- /italy-layout -->
 
@@ -424,11 +488,11 @@
             <img src="../static/images/lucky_cat.png" alt="Logo" loading="lazy">
         </div>
         <div class="footer-content">
-            <p>© 2025 claeryc.com — All Rights Reserved</p>
+            <p>© 2026 claeryc.com — All Rights Reserved</p>
             <nav class="footer-links">
-                <a href="#">About</a>
-                <a href="#">Contact</a>
-                <a href="#">Privacy</a>
+                <a href="../about.html">About</a>
+                <a href="mailto:reeko.it@gmail.com">Contact</a>
+                
             </nav>
         </div>
     </footer>
@@ -448,61 +512,12 @@
         else if (t === "light") { r.classList.add("light"); r.classList.remove("dark"); }
     })();
 </script>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const btn = document.getElementById("theme-toggle");
-        if (!btn) return;
-        btn.addEventListener("click", () => {
-            const r = document.documentElement;
-            const nowDark = r.classList.toggle("dark");
-            r.classList.toggle("light", !nowDark);
-            localStorage.setItem("theme", nowDark ? "dark" : "light");
-        });
-    });
-</script>
-<script>
-    (function () {
-        const navbar = document.querySelector('.navbar');
-        if (!navbar) return;
-        let lastY = window.scrollY, ticking = false;
-        const threshold = 20;
-        function isMenuOpen() { const t = document.getElementById('menu-toggle'); return t ? t.checked : false; }
-        function update() {
-            const y = window.scrollY, delta = y - lastY;
-            if (Math.abs(delta) > threshold) {
-                if (delta > 0 && y > threshold && !isMenuOpen()) navbar.classList.add('hide');
-                else if (delta < 0) navbar.classList.remove('hide');
-                lastY = y;
-            } else { lastY = y; }
-            ticking = false;
-        }
-        window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(update); ticking = true; } }, { passive: true });
-    })();
-</script>
-<script>
-    const original = "Eric's Blog", alternate = "思烨的博客";
-    let showingOriginal = true, interval;
-    function scrambleText(el, text) {
-        const chars = "!@#$%^&*()_+=-{}[];:<>?,.";
-        let i = 0;
-        clearInterval(interval);
-        interval = setInterval(() => {
-            el.textContent = text.split("").map((c, idx) => idx < i ? c : chars[Math.floor(Math.random() * chars.length)]).join("");
-            if (i >= text.length) clearInterval(interval);
-            i += 0.5;
-        }, 50);
-    }
-    setInterval(() => {
-        const el = document.getElementById("scrambleName");
-        showingOriginal = !showingOriginal;
-        scrambleText(el, showingOriginal ? original : alternate);
-    }, 3000);
-</script>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
     const dots        = document.querySelectorAll('.city-dot');
+    const legendItems = document.querySelectorAll('.legend-item');
     const placeholder = document.getElementById('panel-placeholder');
     const panels      = document.querySelectorAll('.loc-panel');
     const lightbox    = document.getElementById('lightbox');
@@ -513,6 +528,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── Dot → panel ──
     function activate(id) {
         dots.forEach(d => d.classList.toggle('active', d.dataset.id === id));
+        legendItems.forEach(li => li.classList.toggle('active', li.dataset.id === id));
         placeholder.style.display = 'none';
         panels.forEach(p => p.classList.toggle('visible', p.id === 'loc-' + id));
     }
@@ -523,6 +539,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(dot.dataset.id); }
         });
     });
+
+    legendItems.forEach(item => {
+        item.addEventListener('click', () => activate(item.dataset.id));
+    });
+
+    // Pre-select the first stop
+    activate('orvieto');
 
     // ── Lightbox ──
     function openLightbox(src, caption) {
@@ -551,5 +574,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+<script src="../static/blog/main.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="About Eric — gap year, Mandarin, travel, and what this blog is about.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://claeryc.com/about.html">
+    <meta property="og:title" content="About — Claeryc">
+    <meta property="og:description" content="About Eric — gap year, Mandarin, travel, and what this blog is about.">
+    <meta property="og:image" content="https://claeryc.com/static/images/thailand.jpg">
+    <title>About — Claeryc</title>
+    <link href="static/blog/styles.css" rel="stylesheet">
+    <link href="static/blog/navbar.css" rel="stylesheet">
+    <link href="static/blog/footer.css" rel="stylesheet">
+    <style>
+        .about-wrapper {
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 15vh 1.5rem 80px;
+        }
+
+        .about-header {
+            margin-bottom: 48px;
+        }
+
+        .about-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin: 0 0 10px;
+            color: var(--fg);
+        }
+
+        .about-header p {
+            font-size: 0.9rem;
+            color: var(--fg);
+            opacity: 0.45;
+            margin: 0;
+            letter-spacing: 0.03em;
+        }
+
+        .about-body p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--fg);
+            opacity: 0.85;
+            margin: 0 0 1.2em;
+        }
+
+        .about-body a {
+            color: var(--fg);
+            border-bottom: 1px solid rgba(128,128,128,0.4);
+            transition: border-color 0.2s;
+        }
+
+        .about-body a:hover {
+            border-color: var(--fg);
+        }
+
+        .about-divider {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 40px 0;
+        }
+
+        .about-divider span.line {
+            flex: 1;
+            height: 1px;
+            background: var(--fg);
+            opacity: 0.12;
+        }
+
+        .about-divider span.star {
+            font-size: 1rem;
+            opacity: 0.3;
+            letter-spacing: 0.15em;
+        }
+
+        .contact-line {
+            margin-top: 48px;
+            font-size: 0.9rem;
+            color: var(--fg);
+            opacity: 0.5;
+        }
+
+        .contact-line a {
+            color: var(--fg);
+            opacity: 1;
+            border-bottom: 1px solid rgba(128,128,128,0.4);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="index.html">
+    <div class="logo">
+      <h3 class="logo-title"><span class="name-wrapper"><span id="scrambleName">Eric's Blog</span></span></h3>
+    </div>
+  </a>
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="hamburger">
+    <span></span><span></span><span></span>
+  </label>
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blogs</a>
+    <a href="recs.html">Recs</a>
+    <a href="now.html">Now</a>
+    <button id="theme-toggle">Theme</button>
+  </div>
+</nav>
+
+<div class="page-wrapper">
+    <main class="mcontent">
+        <div class="about-wrapper">
+
+            <div class="about-header">
+                <h1>About</h1>
+                <p>The person behind the blog.</p>
+            </div>
+
+            <div class="about-body">
+                <p>
+                    I'm Eric — also 思烨 (Sīyè). I took a gap year to learn Mandarin properly,
+                    which meant moving to Nanjing, attending university classes, and living in a dorm
+                    with a bathroom I'd rather not describe. It worked, mostly.
+                </p>
+                <p>
+                    Before that: a solo trip to Thailand where I ended up spending a week with a group
+                    of Chinese travellers I met at a jazz bar. That trip is what started all of this.
+                </p>
+                <p>
+                    The gap year is done now and I'm back at work, but this site remains — part travel
+                    log, part language journal, part dumping ground for whatever else I end up doing.
+                </p>
+
+                <div class="about-divider">
+                    <span class="line"></span>
+                    <span class="star">✦</span>
+                    <span class="line"></span>
+                </div>
+
+                <p>
+                    The three main threads on this site are the
+                    <a href="chinese.html">Mandarin study project</a> (classes, progress, the whole
+                    experience of studying at a Chinese university), a
+                    <a href="blog.html">travel section</a> covering the places I've been, and a general
+                    blog for everything else — including a post about AI that I'm not fully sure I stand
+                    behind anymore.
+                </p>
+                <p>
+                    The <a href="now.html">/now page</a> has a running log of what I'm actually up to,
+                    newest first. That's probably the best place to start if you want the current picture.
+                </p>
+            </div>
+
+            <p class="contact-line">
+                Want to get in touch? <a href="mailto:reeko.it@gmail.com">reeko.it@gmail.com</a>
+            </p>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <img src="static/images/lucky_cat.png" alt="Logo" loading="lazy">
+        </div>
+        <div class="footer-content">
+            <p>© 2026 claeryc.com — All Rights Reserved</p>
+            <nav class="footer-links">
+                <a href="about.html">About</a>
+                <a href="mailto:reeko.it@gmail.com">Contact</a>
+            </nav>
+        </div>
+    </footer>
+</div>
+
+<script>
+    (function () {
+        const savedTheme = localStorage.getItem("theme");
+        const root = document.documentElement;
+        if (savedTheme === "dark") { root.classList.add("dark"); root.classList.remove("light"); }
+        else if (savedTheme === "light") { root.classList.add("light"); root.classList.remove("dark"); }
+    })();
+</script>
+
+<script src="static/blog/main.js" defer></script>
+</body>
+</html>

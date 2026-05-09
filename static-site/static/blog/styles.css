@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 :root {
   --nav-height: 110px;
   --bg: #f4f4f4;
@@ -7,6 +9,10 @@
   --bnb: #0a0a23;
   --invc: #0a0a23;
   --boxs: rgb(0 0 255 / 0.2);
+  --card-bg: #f8f8f8;
+  --card-fg: #0a0a23;
+  --callout-bg: #fff8e5;
+  --callout-border: #f39c12;
 }
 /* 
 bg = background color
@@ -26,6 +32,10 @@ invc = inverted color
     --bnb: #0a0a23;
     --invc: #0a0a23;
     --boxs: rgb(0 0 255 / 0.2);
+    --card-bg: #f8f8f8;
+    --card-fg: #0a0a23;
+    --callout-bg: #fff8e5;
+    --callout-border: #f39c12;
   }
 }
 
@@ -37,6 +47,10 @@ invc = inverted color
   --bnb: #0a0a23;
   --invc: #0a0a23;
   --boxs: rgb(0 0 255 / 0.2);
+  --card-bg: #f8f8f8;
+  --card-fg: #0a0a23;
+  --callout-bg: #fff8e5;
+  --callout-border: #f39c12;
 }
 :root.dark {
   --bg: #15171e;
@@ -45,7 +59,11 @@ invc = inverted color
   --fcb: #15171e;
   --bnb: #383a5c;
   --invc: #15171e;
-  --boxs: rgba(233, 214, 154, 0.67)
+  --boxs: rgba(233, 214, 154, 0.67);
+  --card-bg: #1e2130;
+  --card-fg: #f1f1f1;
+  --callout-bg: #2a2310;
+  --callout-border: #c8860a;
 }
 
 html {
@@ -202,12 +220,12 @@ section[id] {
     width: 90%;
     max-width: 500px;
     min-height: 12vh;
-    background: #f8f8f8;
+    background: var(--card-bg);
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
     text-decoration: none;
-    color: var(--invc);
+    color: var(--card-fg);
     transition: box-shadow 500ms ease-in-out;
 }
 .p_card:hover {
@@ -276,10 +294,10 @@ li {
 
 
 .callout {
-    border-left: 4px solid #f39c12;
+    border-left: 4px solid var(--callout-border);
     padding: 1em;
-    background: #fff8e5;
-    color: var(--invc);
+    background: var(--callout-bg);
+    color: var(--fg);
 }
 .callout.warning {
     border-color: #e67e22;
@@ -449,14 +467,14 @@ td, th {
 details {
   margin: 1em 0;
   padding: 0.5em;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(128, 128, 128, 0.3);
   border-radius: 6px;
-  background: #fafafa;
-  color: var(--invc);
+  background: var(--card-bg);
+  color: var(--fg);
 }
 details[open] {
-  background: #fff8e5;
-  border-color: #f39c12;
+  background: var(--callout-bg);
+  border-color: var(--callout-border);
 }
 summary {
   cursor: pointer;
@@ -499,4 +517,110 @@ summary {
 
 .highlight-box {
 box-shadow: 6px 6px 2px 1px var(--boxs);
+}
+
+/* ─────────────────────────────────────────
+   Scroll fade-ins
+   ───────────────────────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Stagger siblings */
+.fade-in:nth-child(2) { transition-delay: 0.08s; }
+.fade-in:nth-child(3) { transition-delay: 0.16s; }
+.fade-in:nth-child(4) { transition-delay: 0.24s; }
+.fade-in:nth-child(5) { transition-delay: 0.32s; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in { opacity: 1; transform: none; transition: none; }
+}
+
+/* ─────────────────────────────────────────
+   Page transitions (View Transitions API)
+   ───────────────────────────────────────── */
+@keyframes vt-fade-in  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes vt-fade-out { from { opacity: 1; } to { opacity: 0; } }
+
+::view-transition-old(root) {
+  animation: 200ms ease vt-fade-out;
+}
+::view-transition-new(root) {
+  animation: 280ms ease vt-fade-in;
+}
+
+/* ─────────────────────────────────────────
+   Image lightbox
+   ───────────────────────────────────────── */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.lightbox-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.lightbox-overlay img {
+  max-width: 92vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.7);
+  transform: scale(0.94);
+  transition: transform 0.25s ease;
+}
+.lightbox-overlay.open img {
+  transform: scale(1);
+}
+.lightbox-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  color: rgba(255,255,255,0.7);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: color 0.15s;
+}
+.lightbox-close:hover { color: #fff; }
+
+/* Mark lightbox-eligible images */
+.content-block img,
+.progress-entry img {
+  cursor: zoom-in;
+}
+
+/* ─────────────────────────────────────────
+   Typewriter cursor blink
+   ───────────────────────────────────────── */
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: currentColor;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 0.8s step-end infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }

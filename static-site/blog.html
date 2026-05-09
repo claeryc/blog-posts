@@ -45,8 +45,14 @@
 <div class="page-wrapper">
     <main class="mcontent">
 
+        <!-- Page header -->
+        <div style="text-align: center; max-width: 560px; margin: 0 auto; padding: 14vh 1.5rem 0;">
+            <h1 style="font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; margin: 0 0 10px; color: var(--fg);">All posts</h1>
+            <p style="font-size: 0.95rem; color: var(--fg); opacity: 0.5; margin: 0 0 2.5rem;">Travel, language, and whatever else ends up here.</p>
+        </div>
+
         <!-- Search -->
-        <div style="display: flex; justify-content: center; margin-bottom: 2em; margin-top: 3em;">
+        <div style="display: flex; justify-content: center; margin-bottom: 2em; margin-top: 0;">
             <form id="search-form">
                 <label for="search">Search: </label>
                 <input id="search-input" class="search" type="text" name="q" placeholder="Enter title name">
@@ -59,7 +65,7 @@
 
         <div id="posts" class="p_card-container">
 
-            <a class="p_card post-card" href="posts/italy-2026.html" data-title="Italy — Spring 2026">
+            <a class="p_card post-card fade-in" href="posts/italy-2026.html" data-title="Italy — Spring 2026" data-tags="travel">
                 <img src="static/images/italy/orvieto_city.JPG" alt="Italy 2026" loading="lazy">
                 <div>
                     <div class="p_card-title">Italy — Spring 2026</div>
@@ -67,7 +73,7 @@
                 </div>
             </a>
 
-            <a class="p_card post-card" href="posts/zuoye_kouyu2.html" data-title="Drawing Challenge (first try in over a decade...)">
+            <a class="p_card post-card fade-in" href="posts/zuoye_kouyu2.html" data-title="Drawing Challenge (first try in over a decade...)" data-tags="misc">
                 <img src="static/images/bp_drawing_tbn.png" alt="Drawing Challenge (first try in over a decade...)" loading="lazy">
                 <div>
                     <div class="p_card-title">Drawing Challenge (first try in over a decade...)</div>
@@ -75,7 +81,7 @@
                 </div>
             </a>
 
-            <a class="p_card post-card" href="posts/zuoye_kouyu.html" data-title="中上2班 - 口语课作业">
+            <a class="p_card post-card fade-in" href="posts/zuoye_kouyu.html" data-title="中上2班 - 口语课作业" data-tags="language">
                 <img src="static/images/blog_thailand-banner.jpg" alt="中上2班 - 口语课作业" loading="lazy">
                 <div>
                     <div class="p_card-title">中上2班 - 口语课作业</div>
@@ -83,7 +89,7 @@
                 </div>
             </a>
 
-            <a class="p_card post-card" href="posts/fourth-post.html" data-title="AI is becoming inbred">
+            <a class="p_card post-card fade-in" href="posts/fourth-post.html" data-title="AI is becoming inbred" data-tags="ai">
                 <img src="static/images/ghostp.jpg" alt="AI is becoming inbred" loading="lazy">
                 <div>
                     <div class="p_card-title">AI is becoming inbred</div>
@@ -91,7 +97,7 @@
                 </div>
             </a>
 
-            <a class="p_card post-card" href="posts/third-post.html" data-title="My Life in China">
+            <a class="p_card post-card fade-in" href="posts/third-post.html" data-title="My Life in China" data-tags="travel language">
                 <img src="static/images/blog_thailand-banner.jpg" alt="My Life in China" loading="lazy">
                 <div>
                     <div class="p_card-title">My Life in China</div>
@@ -109,17 +115,16 @@
             <img src="static/images/lucky_cat.png" alt="Logo" loading="lazy">
         </div>
         <div class="footer-content">
-            <p>© 2025 claeryc.com — All Rights Reserved</p>
+            <p>© 2026 claeryc.com — All Rights Reserved</p>
             <nav class="footer-links">
-                <a href="#">About</a>
-                <a href="#">Contact</a>
-                <a href="#">Privacy</a>
+                <a href="about.html">About</a>
+                <a href="mailto:reeko.it@gmail.com">Contact</a>
+                
             </nav>
         </div>
     </footer>
 </div>
 
-<!-- Theme script -->
 <script>
     (function () {
         const savedTheme = localStorage.getItem("theme");
@@ -134,90 +139,30 @@
     })();
 </script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const btn = document.getElementById("theme-toggle");
-        if (!btn) return;
-        btn.addEventListener("click", () => {
-            const root = document.documentElement;
-            const nowDark = root.classList.toggle("dark");
-            root.classList.toggle("light", !nowDark);
-            localStorage.setItem("theme", nowDark ? "dark" : "light");
-        });
-    });
-</script>
-
-<!-- Navbar hide-on-scroll -->
-<script>
-    (function () {
-        const navbar = document.querySelector('.navbar');
-        if (!navbar) return;
-        let lastY = window.scrollY;
-        let ticking = false;
-        const threshold = 20;
-        function isMenuOpen() {
-            const menuToggle = document.getElementById('menu-toggle');
-            return menuToggle ? menuToggle.checked : false;
-        }
-        function update() {
-            const y = window.scrollY;
-            const delta = y - lastY;
-            if (Math.abs(delta) > threshold) {
-                if (delta > 0 && y > threshold && !isMenuOpen()) {
-                    navbar.classList.add('hide');
-                } else if (delta < 0) {
-                    navbar.classList.remove('hide');
-                }
-                lastY = y;
-            } else {
-                lastY = y;
-            }
-            ticking = false;
-        }
-        window.addEventListener('scroll', function () {
-            if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
-        }, { passive: true });
-    })();
-</script>
-
-<!-- Navbar logo scramble -->
-<script>
-    const original = "Eric's Blog";
-    const alternate = "思烨的博客";
-    let showingOriginal = true;
-    let interval;
-    function scrambleText(element, text) {
-        const chars = "!@#$%^&*()_+=-{}[];:<>?,.";
-        let iterations = 0;
-        clearInterval(interval);
-        interval = setInterval(() => {
-            const scrambled = text.split("").map((char, i) => {
-                if (i < iterations) return char;
-                return chars[Math.floor(Math.random() * chars.length)];
-            }).join("");
-            element.textContent = scrambled;
-            if (iterations >= text.length) clearInterval(interval);
-            iterations += 1 / 2;
-        }, 50);
-    }
-    setInterval(() => {
-        const nameEl = document.getElementById("scrambleName");
-        showingOriginal = !showingOriginal;
-        scrambleText(nameEl, showingOriginal ? original : alternate);
-    }, 3000);
-</script>
-
-<!-- Client-side search filter -->
+<!-- Client-side search + tag filter -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("search-form");
-        const input = document.getElementById("search-input");
-        const cards = document.querySelectorAll(".post-card");
+        const form      = document.getElementById("search-form");
+        const input     = document.getElementById("search-input");
+        const cards     = document.querySelectorAll(".post-card");
         const noResults = document.getElementById("no-results");
+        const heading   = document.querySelector('.mcontent h1');
 
-        // Read ?q= from URL on page load
-        const params = new URLSearchParams(window.location.search);
-        const qParam = params.get("q");
+        const params   = new URLSearchParams(window.location.search);
+        const qParam   = params.get("q");
+        const tagParam = params.get("tag");
+
+        // Apply tag filter on load (e.g. ?tag=travel from the project card)
+        if (tagParam) {
+            filterByTag(tagParam);
+            // Update the page heading to reflect the active filter
+            if (heading) heading.textContent = tagParam.charAt(0).toUpperCase() + tagParam.slice(1);
+            // Hide search — it only searches titles and ignores the active tag filter
+            const searchWrapper = form.closest('div');
+            if (searchWrapper) searchWrapper.style.display = 'none';
+        }
+
+        // Apply text search on load (e.g. ?q=italy)
         if (qParam) {
             input.value = qParam;
             filterPosts(qParam);
@@ -226,7 +171,6 @@
         form.addEventListener("submit", function (e) {
             e.preventDefault();
             filterPosts(input.value);
-            // Update URL without reload
             const url = new URL(window.location);
             if (input.value) {
                 url.searchParams.set("q", input.value);
@@ -239,6 +183,20 @@
         input.addEventListener("input", function () {
             filterPosts(input.value);
         });
+
+        function filterByTag(tag) {
+            let visible = 0;
+            cards.forEach(card => {
+                const tags = (card.getAttribute("data-tags") || "").split(" ");
+                if (tags.includes(tag)) {
+                    card.style.display = "";
+                    visible++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+            noResults.style.display = visible === 0 ? "block" : "none";
+        }
 
         function filterPosts(query) {
             const q = query.trim().toLowerCase();
@@ -257,5 +215,6 @@
     });
 </script>
 
+<script src="static/blog/main.js" defer></script>
 </body>
 </html>
